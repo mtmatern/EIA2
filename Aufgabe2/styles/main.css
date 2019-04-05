@@ -1,0 +1,19 @@
+/*main.css*/
+/*
+Aufgabe: 2 Name: Manuel Matern
+Matrikel: 261185
+Datum: 05.04.2019
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
+auch nicht diktiert. */
+
+.ablage {
+    display: flex;
+    justify-self: center ;
+    color: brown;
+}
+
+.aufnahme {
+    display: flex;
+    justify-self: flex-end;
+    color: green;
+}
