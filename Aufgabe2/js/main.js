@@ -1,7 +1,7 @@
 /*
 Aufgabe: 2 Name: Manuel Matern
 Matrikel: 261185
-Datum: 05.04.2019
+Datum: 06.04.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
 auch nicht diktiert. */
 //Karten
@@ -15,7 +15,8 @@ let allCards = [
 let handKarten = [];
 //Prompt
 function abfrage() {
-    let x = Math.floor(Math.random()) * allCards.length;
+    let x = Math.floor(Math.random() * allCards.length);
+    console.log(x);
     handKarten.push(allCards[x]);
     console.log(handKarten);
     allCards.splice(x, 1);
@@ -30,17 +31,15 @@ function numberCheck() {
     else {
         for (let i = 0; i < cardsOnTheHand; i++) {
             abfrage();
-            intoHtml(allCards[i], 'aufnahme', i);
+            intoHtml(handKarten[i], i);
         }
     }
 }
-function intoHtml(singleCard, htmlID, cardID) {
-    for (let i = 0; i < handKarten.length; i++) {
-        let createDiv = document.createElement('div');
-        let cardString = `<div id="aufnahme">${singleCard.color, singleCard.value}</div>`;
-        document.body.appendChild(createDiv);
-        document.getElementById("aufnahme").innerHTML = cardString;
-    }
+function intoHtml(singleCard, i) {
+    let createDiv = document.createElement('div');
+    let cardString = `<div id="handCards" class="i${i}">${singleCard.color + " " + singleCard.value}</div>`;
+    document.body.appendChild(createDiv);
+    document.getElementById("hand").innerHTML += cardString;
 }
 //document.getElementById("ablage").innerHTML
 //document.getElementById("aufnahme").innerHTML
