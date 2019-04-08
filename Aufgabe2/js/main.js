@@ -35,10 +35,10 @@ function numberCheck() {
         }
     }
 }
-function intoHtml(singleCard, i) {
+function intoHtml(_singleCard, _i) {
     let createDiv = document.createElement('div');
-    let cardString = `<div id="handCards" class="i${i}">${singleCard.color + " " + singleCard.value}</div>`;
-    document.body.appendChild(createDiv);
+    let cardString = `<div id="handCards" class="i${_i}">${_singleCard.color + " " + _singleCard.value}</div>`;
+    //    document.body.appendChild(createDiv); Fehler eliminiert EZ
     document.getElementById("hand").innerHTML += cardString;
 }
 //document.getElementById("ablage").innerHTML

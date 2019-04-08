@@ -6,13 +6,13 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 auch nicht diktiert. */
 
 //Karten Interface
-interface Cards {
+interface Card {
     color: string;
     value: string;
 }
 
 //Karten
-let allCards: Cards[] = [
+let allCards: Card[] = [
     { color: "Kreuz", value: "7" }, { color: "Kreuz", value: "8" }, { color: "Kreuz", value: "9" }, { color: "Kreuz", value: "10" }, { color: "Kreuz", value: "Bube" }, { color: "Kreuz", value: "Dame" }, { color: "Kreuz", value: "Koenig" }, { color: "Kreuz", value: "Ass" },
     { color: "Herz", value: "7" }, { color: "Herz", value: "8" }, { color: "Herz", value: "9" }, { color: "Herz", value: "10" }, { color: "Herz", value: "Bube" }, { color: "Herz", value: "Dame" }, { color: "Herz", value: "Koenig" }, { color: "Herz", value: "Ass" },
     { color: "Pik", value: "7" }, { color: "Pik", value: "8" }, { color: "Pik", value: "9" }, { color: "Pik", value: "10" }, { color: "Pik", value: "Bube" }, { color: "Pik", value: "Dame" }, { color: "Pik", value: "Koenig" }, { color: "Pik", value: "Ass" },
@@ -20,7 +20,7 @@ let allCards: Cards[] = [
 ]
 
 //Handkarten
-let handKarten: Cards[] = []
+let handKarten: Card[] = []
 
 //Prompt
 function abfrage(): void {
@@ -47,11 +47,11 @@ function numberCheck(): void {
     }
 }
 
-function intoHtml(singleCard: Cards, i:number): void {
+function intoHtml(_singleCard: Card, _i:number): void {
     
         let createDiv = document.createElement('div');
-        let cardString = `<div id="handCards" class="i${i}">${singleCard.color + " " + singleCard.value}</div>`
-        document.body.appendChild(createDiv);
+        let cardString = `<div id="handCards" class="i${_i}">${_singleCard.color + " " + _singleCard.value}</div>`
+    //    document.body.appendChild(createDiv); Fehler eliminiert EZ
         document.getElementById("hand").innerHTML += cardString;        
     
 }
