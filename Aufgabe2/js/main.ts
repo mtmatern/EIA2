@@ -23,7 +23,7 @@ let allCards: Card[] = [
 let handKarten: Card[] = []
 
 //Prompt
-function abfrage(): void {
+function userAbfrage(): void {
     let x: number = Math.floor(Math.random()* allCards.length);
     console.log(x);
     handKarten.push(allCards[x]);
@@ -34,14 +34,14 @@ function abfrage(): void {
 
 document.addEventListener("DOMContentLoaded", numberCheck)
 function numberCheck(): void {
-    let frage: string = prompt("Wie viele Karten möchtest du?");
-    let cardsOnTheHand: number = parseInt(frage);
+    let userInput: string = prompt("Wie viele Karten möchtest du?");
+    let cardsOnTheHand: number = parseInt(userInput);
     if (Number.isNaN(cardsOnTheHand) || cardsOnTheHand < 0 || cardsOnTheHand > allCards.length) {
         numberCheck();
     }
     else {
         for (let i: number = 0; i < cardsOnTheHand; i++) {
-            abfrage();
+            userAbfrage();
             intoHtml(handKarten[i], i)
         }
     }
