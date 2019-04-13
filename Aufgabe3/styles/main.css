@@ -1,8 +1,8 @@
 /*main.css*/
 /*
-Aufgabe: 2 Name: Manuel Matern
+Aufgabe: 3 Name: Manuel Matern
 Matrikel: 261185
-Datum: 06.04.2019
+Datum: 13.04.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
 auch nicht diktiert. */
 
@@ -46,38 +46,17 @@ body{
     top: 300px;
 }
 
-#handCards {
+#karten {
+    display: flex;
+    flex-direction: row;
+}
+
+.handCards {
+    display: block;
     color: white;
     border: solid black;
-    position: absolute;
+    position: relative;
     background: rgb(138, 130, 130);
     width: 130px;
     height: 200px;
-}
-
-.i0{
-    left: 10px;
-}
-.i1{
-    left: 160px;
-}
-
-.i2{
-    left: 310px;
-}
-
-.i3{
-    left: 460px;
-}
-
-.i4{
-    left: 610px;
-}
-
-.i5{
-    left: 760px;
-}
-
-.i6{
-    left: 910px;
 }
