@@ -29,45 +29,64 @@ namespace task3 {
     let abgelegteKarten: Card[] = [];
 
     document.addEventListener("DOMContentLoaded", numberCheck);
+    document.addEventListener("DOMContentLoaded", addListenerCardsSort);
+
 
     //Button
-    window.onload = function () {
+    function addListenerCardsSort(): void {
         document.getElementById('sortButton').addEventListener("click", cardsSort);
         setting();
         addClickEventForHand();
     }
-
+    
     //Add Click/spacebar function to Aufnahmestapel
     function setting(): void {
-        document.addEventListener("keydown", function (event) {
-            if (event.which == 32 && allCards.length != 0) {
-                //get 1 new Card
-                takeCardFromDeck(handKarten.length);
-                addClickEventForHand();
-            }
-        });
-        document.getElementById('aufnahme').addEventListener("click", function () {
-            if (allCards.length != 0) {
-                takeCardFromDeck(handKarten.length);
-                addClickEventForHand();
-            }
-        });
+        document.addEventListener("keydown", spaceClicked);
+        document.getElementById('aufnahme').addEventListener("click", aufnahmeClick);
     }
 
     //Click Events für die Karten
     function addClickEventForHand(): void {
-        for (let i = 0; i < handKarten.length; i++) {
-            document.getElementById('i' + handKarten[i].value + handKarten[i].color).addEventListener("click", function () {
-                showAblagestapel(handKarten[i].color, handKarten[i].value);
-                abgelegteKarten.push(handKarten[i]);
-                handKarten.splice(i, 1);
-                deletingCards();
-                for (let j: number = 0; j < handKarten.length; j++) {
-                    intoHtml(handKarten[j].color, handKarten[j].value);
-                }
-                addClickEventForHand();
-            });
+        for (let i: number = 0; i < handKarten.length; i++) {
+            document.getElementById('i' + handKarten[i].value + handKarten[i].color).addEventListener("click", givesOneCardClickEvent);
         }
+    }
+
+    function aufnahmeClick(): void {
+        if (allCards.length != 0) {
+            takeCardFromDeck(handKarten.length);
+            addClickEventForHand();
+        }
+    }
+
+    function spaceClicked(_event:KeyboardEvent): void {
+        let keyCode = _event.keyCode;
+        if (keyCode == 32 && allCards.length != 0) {
+            //get 1 new Card
+            takeCardFromDeck(handKarten.length);
+            addClickEventForHand();
+        }
+    }
+
+    
+
+    function givesOneCardClickEvent(_event:Event): void {
+        let n:number;
+        let domObject: HTMLElement = < HTMLElement> _event.target;
+        for(let i: number = 0; i < handKarten.length; i++) {
+            if ( domObject.getAttribute("id") == "i" +handKarten[i].value + handKarten[i].color) {
+                n = i;
+            }
+        }
+        showAblagestapel(handKarten[n].color, handKarten[n].value);
+        abgelegteKarten.push(handKarten[n]);
+        
+        handKarten.splice(n, 1);
+        deletingCards();
+        for (let j: number = 0; j < handKarten.length; j++) {
+            intoHtml(handKarten[j].color, handKarten[j].value);
+        }
+        addClickEventForHand();
     }
 
     //Darstellung der Karten auf dem Ablagestapel
@@ -75,9 +94,7 @@ namespace task3 {
 
         let node: HTMLElement = document.getElementById("ablage");
         node.innerHTML = "";
-
-        let createDiv = document.createElement('div');
-        let cardString = `<div class="ablageCard" id="i${_cardValue}${_cardColor}">${_cardColor + " " + _cardValue}</div>`
+        let cardString: String = `<div class="ablageCard" id="i${_cardValue}${_cardColor}">${_cardColor + " " + _cardValue}</div>`
         document.getElementById("ablage").innerHTML += cardString;
     }
 
@@ -135,8 +152,7 @@ namespace task3 {
     //Html generation
     function intoHtml(_cardColor: String, _cardValue: String): void {
 
-        let createDiv = document.createElement('div');
-        let cardString = `<div class="handCards" id="i${_cardValue}${_cardColor}">${_cardColor + " " + _cardValue}</div>`
+        let cardString: String = `<div class="handCards" id="i${_cardValue}${_cardColor}">${_cardColor + " " + _cardValue}</div>`
         document.getElementById("karten").innerHTML += cardString;
 
     }
