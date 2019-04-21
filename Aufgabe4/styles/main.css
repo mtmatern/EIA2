@@ -1,0 +1,39 @@
+/*main.css*/
+/*
+Aufgabe: 4 Name: Manuel Matern
+Matrikel: 261185
+Datum: 21.04.2019
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
+auch nicht diktiert. */
+
+header {
+  background-color: aqua;
+  text-align: center;
+  font-size: 2rem;
+  border: solid black;
+}
+
+
+#container {
+	float: left;
+  margin-right: 1%; 
+}
+
+fieldset {
+  background-color: aquamarine;
+}
+
+legend {
+  font-size: 2rem;
+}
+
+input, select, textarea{
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
