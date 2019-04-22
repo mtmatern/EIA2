@@ -13,78 +13,88 @@
     <header>
         <span>EISDEALER</span>
     </header>
-    <fieldset id="container">
-        <legend>Stelle dein Eis zusammen:</legend>
-        <h2>Wähle: Waffel oder Becher?</h2>
-        <input type="radio" name="waffelbecher" value="0.50" id="radio1" class="Waffel" required />
-        <label for="radio1">Waffel (+0,50€)</label>
-        <input type="radio" name="waffelbecher" value="0" id="radio2" class="Becher" required />
-        <label for="radio2">Becher</label>
-        <h2>Wähle Anzahl Kugeln:</h2>
-        <input type="radio" name="Kugeln" value="1" id="radio3" class="1 Kugel" required />
-        <label for="radio3">1 Kugel (1€)</label>
-        <input type="radio" name="Kugeln" value="2" id="radio4" class="2 Kugeln" required />
-        <label for="radio4">2 Kugeln (2€)</label>
-        <input type="radio" name="Kugeln" value="3" id="radio5" class="3 Kugeln" required />
-        <label for="radio5">3 Kugeln (3€)</label>
-        <input type="radio" name="Kugeln" value="3.50" id="radio6" class="4 Kugeln" required />
-        <label for="radio6">4 Kugeln (3,50€)</label>
-        <input type="radio" name="Kugeln" value="4" id="radio7" class="5 Kugeln" required />
-        <label for="radio7">5 Kugeln (4€)</label>
-        <h2>Eissorten</h2>
-        Schokolade:
-        <input type="number" name="Stepper" class="Schokolade" id="0" step="1" min="0" max="6" value="0" />
-        Nuss:
-        <input type="number" name="Stepper" class="Nuss" id="0" step="1" min="0" max="6" value="0" />
-        Cookies:
-        <input type="number" name="Stepper" class="Cookies" id="0" step="1" min="0" max="6" value="0" />
-        Stracciatella:
-        <input type="number" name="Stepper" class="Stracciatella" id="0" step="1" min="0" max="6" value="0" />
-        Heidelbeere:
-        <input type="number" name="Stepper" class="Heidelbeere" id="0" step="1" min="0" max="6" value="0" />
-        Mango:
-        <input type="number" name="Stepper" class="Mango" id="0" step="1" min="0" max="6" value="0" /><br>
-        Erdbeere:
-        <input type="number" name="Stepper" class="Erdbeere" id="0" step="1" min="0" max="6" value="0" />
-        Vanille:
-        <input type="number" name="Stepper" class="Vanille" id="0" step="1" min="0" max="6" value="0" />
-        Banane:
-        <input type="number" name="Stepper" class="Banane" id="0" step="1" min="0" max="6" value="0" />
-        Himbeer:
-        <input type="number" name="Stepper" class="Himbeer" id="0" step="1" min="0" max="6" value="0" />
-        Zitrone:
-        <input type="number" name="Stepper" class="Zitrone" id="0" step="1" min="0" max="6" value="0" />
-        Apfel:
-        <input type="number" name="Stepper" class="Apfel" id="0" step="1" min="0" max="6" value="0" />
-        <hr />
-        <h2>Exotische Eissorten</h2>
-        Kaugummi:
-        <input type="number" name="Stepper" class="Kaugummi" id="0" step="1" min="0" max="6" value="0" />
-        Schlumpf Eis:
-        <input type="number" name="Stepper" class="Schlumpf Eis" id="0" step="1" min="0" max="6" value="0" />
-        Currywurst:
-        <input type="number" name="Stepper" class="Currywurst" id="0" step="1" min="0" max="6" value="0" />
-        Zitrone Ingwer:
-        <input type="number" name="Stepper" class="Zitrone Ingwer" id="0" step="1" min="0" max="6" value="0" /><br>
-        Bertie Bott's Bohnen:
-        <input type="number" name="Stepper" class="Bertie Bott's Bohnen" id="0" step="1" min="0" max="6" value="0" />
-        Osterhase:
-        <input type="number" name="Stepper" class="Osterhase" id="0" step="1" min="0" max="6" value="0" />
-        Eistee Pfirsich:
-        <input type="number" name="Stepper" class="Eistee Pfirsich" id="0" step="1" min="0" max="6" value="0" />
-        Star Wars Versorgungsriegel:
-        <input type="number" name="Stepper" class="Star Wars Versorgungsriegel" id="0" step="1" min="0" max="6" value="0" />
-        <hr />
-        <h2> Extras (Alle je + 0,50€</h2>
-        <input type="checkbox" name="Streusel" class="Streusel" id="check1" value="0.50" />
-        <label for="check1">Streusel</label>
-        <input type="checkbox" name="Schokosoße" class="Schokolade" id="check2" value="0.50" />
-        <label for="check2">Schokosoße</label>
-        <input type="checkbox" name="Karamelsoße" class="Karamelsoße" id="check3" value="0.50" />
-        <label for="check3">Karamelsoße</label>
-        <input type="checkbox" name="Sahne" class="Sahne" id="check4" value="0.50" />
-        <label for="check4">Sahne</label>
-    </fieldset>
+    <form name="Auswahl" id="Asuwahl">
+        <fieldset id="container">
+            <legend>Stelle dein Eis zusammen:</legend>
+            <fieldset name="anrichtung">
+                <h2>Wähle: Waffel oder Becher?</h2>
+                <input type="radio" name="waffelbecher" value="0.50" id="radio1" class="Waffel" required />
+                <label for="radio1">Waffel (+0,50€)</label>
+                <input type="radio" name="waffelbecher" value="0" id="radio2" class="Becher" required />
+                <label for="radio2">Becher</label>
+            </fieldset>
+            <!-- <fieldset name="Kugeln">
+                <h2>Wähle Anzahl Kugeln:</h2>
+                <input type="radio" name="Kugeln" value="1" id="radio3" class="1 Kugel" required />
+                <label for="radio3">1 Kugel (1€)</label>
+                <input type="radio" name="Kugeln" value="2" id="radio4" class="2 Kugeln" required />
+                <label for="radio4">2 Kugeln (2€)</label>
+                <input type="radio" name="Kugeln" value="3" id="radio5" class="3 Kugeln" required />
+                <label for="radio5">3 Kugeln (3€)</label>
+                <input type="radio" name="Kugeln" value="3.50" id="radio6" class="4 Kugeln" required />
+                <label for="radio6">4 Kugeln (3,50€)</label>
+                <input type="radio" name="Kugeln" value="4" id="radio7" class="5 Kugeln" required />
+                <label for="radio7">5 Kugeln (4€)</label>
+            </fieldset> -->
+            <fieldset name="Sorten">
+                <h2>Eissorten</h2>
+                Schokolade:
+                <input type="number" name="Stepper" class="Schokolade" id="0" step="1" min="0" max="6" value="0" />
+                Nuss:
+                <input type="number" name="Stepper" class="Nuss" id="0" step="1" min="0" max="6" value="0" />
+                Cookies:
+                <input type="number" name="Stepper" class="Cookies" id="0" step="1" min="0" max="6" value="0" />
+                Stracciatella:
+                <input type="number" name="Stepper" class="Stracciatella" id="0" step="1" min="0" max="6" value="0" />
+                Heidelbeere:
+                <input type="number" name="Stepper" class="Heidelbeere" id="0" step="1" min="0" max="6" value="0" />
+                Mango:
+                <input type="number" name="Stepper" class="Mango" id="0" step="1" min="0" max="6" value="0" /><br>
+                Erdbeere:
+                <input type="number" name="Stepper" class="Erdbeere" id="0" step="1" min="0" max="6" value="0" />
+                Vanille:
+                <input type="number" name="Stepper" class="Vanille" id="0" step="1" min="0" max="6" value="0" />
+                Banane:
+                <input type="number" name="Stepper" class="Banane" id="0" step="1" min="0" max="6" value="0" />
+                Himbeer:
+                <input type="number" name="Stepper" class="Himbeer" id="0" step="1" min="0" max="6" value="0" />
+                Zitrone:
+                <input type="number" name="Stepper" class="Zitrone" id="0" step="1" min="0" max="6" value="0" />
+                Apfel:
+                <input type="number" name="Stepper" class="Apfel" id="0" step="1" min="0" max="6" value="0" />
+                <hr />
+                <h2>Exotische Eissorten</h2>
+                Kaugummi:
+                <input type="number" name="Stepper" class="Kaugummi" id="0" step="1" min="0" max="6" value="0" />
+                Schlumpf Eis:
+                <input type="number" name="Stepper" class="Schlumpf Eis" id="0" step="1" min="0" max="6" value="0" />
+                Currywurst:
+                <input type="number" name="Stepper" class="Currywurst" id="0" step="1" min="0" max="6" value="0" />
+                Zitrone Ingwer:
+                <input type="number" name="Stepper" class="Zitrone Ingwer" id="0" step="1" min="0" max="6" value="0" /><br>
+                Bertie Bott's Bohnen:
+                <input type="number" name="Stepper" class="Bertie Bott's Bohnen" id="0" step="1" min="0" max="6" value="0" />
+                Osterhase:
+                <input type="number" name="Stepper" class="Osterhase" id="0" step="1" min="0" max="6" value="0" />
+                Eistee Pfirsich:
+                <input type="number" name="Stepper" class="Eistee Pfirsich" id="0" step="1" min="0" max="6" value="0" />
+                Star Wars Versorgungsriegel:
+                <input type="number" name="Stepper" class="Star Wars Versorgungsriegel" id="0" step="1" min="0" max="6"
+                    value="0" />
+            </fieldset>
+            <fieldset name="Extras">
+                <h2> Extras (Alle je + 0,50€</h2>
+                <input type="checkbox" name="Streusel" class="Streusel" id="check1" value="0.50" />
+                <label for="check1">Streusel</label>
+                <input type="checkbox" name="Schokosoße" class="Schokolade" id="check2" value="0.50" />
+                <label for="check2">Schokosoße</label>
+                <input type="checkbox" name="Karamelsoße" class="Karamelsoße" id="check3" value="0.50" />
+                <label for="check3">Karamelsoße</label>
+                <input type="checkbox" name="Sahne" class="Sahne" id="check4" value="0.50" />
+                <label for="check4">Sahne</label>
+            </fieldset>
+        </fieldset>
+    </form>
     <div id="checkout">
         <fieldset id="text">
             <h3>Checkout</h3>
@@ -121,6 +131,24 @@
             <br>
             <button id="checkButton">Bestellung überprüfen</button>
         </fieldset>
+
+        </form>
+        <form name="myForm">
+            <input type="tel" name="telephone">
+            <input type="tel" name="mobile">
+            <input type="button" value="Submit" onclick="validateAndSend()">
+        </form>
+        <script>
+            function validateAndSend() {
+                if (myForm.telephone.value == '' && myForm.mobile.value == '') {
+                    alert('You have to enter at least one phone number.');
+                    return false;
+                }
+                else {
+                    myForm.submit();
+                }
+            }
+        </script>
     </div>
 </body>
 

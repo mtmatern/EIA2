@@ -30,23 +30,23 @@ namespace task4 {
             if (input[i].checked == true) {
                 let preis: number = Number(input[i].value);
                 n += preis;
-                let OrderName = document.createElement("li");
+                let OrderName: HTMLLIElement = document.createElement("li");
                 OrderName.innerHTML = `<p>${input[i].className}</p>`
                 document.getElementById("Order").appendChild(OrderName);
 
             }
             if (input[i].name == "Stepper") {
                 let stepperNumber: number = Number(input[i].value);
-                let preisStepper: number = Number(input[i].id);
-                n += stepperNumber * preisStepper;
+                /* let preisStepper: number = Number(input[i].id); */
+                n += stepperNumber /* * preisStepper; */
                 if (stepperNumber > 0) {
-                    let OrderName = document.createElement("li");
+                    let OrderName: HTMLLIElement = document.createElement("li");
                     OrderName.innerHTML = `<p>${stepperNumber} ${input[i].className}</p>`
                     document.getElementById("Order").appendChild(OrderName);
                 }
             }
-
         }
+
         document.getElementById("showprice").innerHTML = n.toFixed(2).toString();
     }
 
@@ -65,13 +65,17 @@ namespace task4 {
                 let feldName: string = pruefung[i].name;
                 leereFormulare.push(feldName);
             }
+            if (pruefung[i].checked == false) {
+                let feldClass: string = pruefung[i].className;
+                leereFormulare.push(feldClass);
+            }
         }
         if (leereFormulare.length == 0) {
             alert("Ihre Bestellung wurde erfolgreich abgesendet! Vielen Dank:)");
         }
         else { alert(`${leereFormulare} fehlt noch`); }
     }
-
+    
     /* //Variablen für die Auswahl und Preis
 
     let waffelPreis: number = 0;

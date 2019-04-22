@@ -1,7 +1,7 @@
 /*
 Aufgabe: 4 Name: Manuel Matern
 Matrikel: 261185
-Datum: 20.04.2019
+Datum: 21.04.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
 auch nicht diktiert. */
 var task4;
@@ -31,8 +31,8 @@ var task4;
             }
             if (input[i].name == "Stepper") {
                 let stepperNumber = Number(input[i].value);
-                let preisStepper = Number(input[i].id);
-                n += stepperNumber * preisStepper;
+                /* let preisStepper: number = Number(input[i].id); */
+                n += stepperNumber; /* * preisStepper; */
                 if (stepperNumber > 0) {
                     let OrderName = document.createElement("li");
                     OrderName.innerHTML = `<p>${stepperNumber} ${input[i].className}</p>`;
@@ -49,19 +49,23 @@ var task4;
 
     } */
     function pruefungDerDaten() {
-        let empty = [];
+        let leereFormulare = [];
         let pruefung = document.getElementsByTagName("input");
         for (let i = 0; i < pruefung.length; i++) {
             if (pruefung[i].value == "") {
                 let feldName = pruefung[i].name;
-                empty.push(feldName);
+                leereFormulare.push(feldName);
+            }
+            if (pruefung[i].checked == false) {
+                let feldClass = pruefung[i].className;
+                leereFormulare.push(feldClass);
             }
         }
-        if (empty.length == 0) {
+        if (leereFormulare.length == 0) {
             alert("Ihre Bestellung wurde erfolgreich abgesendet! Vielen Dank:)");
         }
         else {
-            alert(`${empty} fehlt noch`);
+            alert(`${leereFormulare} fehlt noch`);
         }
     }
     /* //Variablen für die Auswahl und Preis
