@@ -37,6 +37,7 @@ namespace task4 {
             }
             if (input[i].name == "Stepper") {
                 let stepperNumber: number = Number(input[i].value);
+                console.log(input[i].value);
                 /* let preisStepper: number = Number(input[i].id); */
                 n += stepperNumber /* * preisStepper; */
                 if (stepperNumber > 0) {

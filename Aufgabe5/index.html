@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
     <title>Eisdealer</title>
 </head>
 
@@ -13,31 +14,17 @@
     <header>
         <span>EISDEALER</span>
     </header>
-    <form name="Auswahl" id="Asuwahl">
-        <fieldset id="container">
-            <legend>Stelle dein Eis zusammen:</legend>
-            <fieldset name="anrichtung">
-                <h2>Wähle: Waffel oder Becher?</h2>
+    <fieldset id="container">
+        <legend>Stelle dein Eis zusammen:</legend>
+        <fieldset id="anrichtung">
+            <!-- <h2>Wähle: Waffel oder Becher?</h2>
                 <input type="radio" name="waffelbecher" value="0.50" id="radio1" class="Waffel" required />
                 <label for="radio1">Waffel (+0,50€)</label>
                 <input type="radio" name="waffelbecher" value="0" id="radio2" class="Becher" required />
-                <label for="radio2">Becher</label>
-            </fieldset>
-            <!-- <fieldset name="Kugeln">
-                <h2>Wähle Anzahl Kugeln:</h2>
-                <input type="radio" name="Kugeln" value="1" id="radio3" class="1 Kugel" required />
-                <label for="radio3">1 Kugel (1€)</label>
-                <input type="radio" name="Kugeln" value="2" id="radio4" class="2 Kugeln" required />
-                <label for="radio4">2 Kugeln (2€)</label>
-                <input type="radio" name="Kugeln" value="3" id="radio5" class="3 Kugeln" required />
-                <label for="radio5">3 Kugeln (3€)</label>
-                <input type="radio" name="Kugeln" value="3.50" id="radio6" class="4 Kugeln" required />
-                <label for="radio6">4 Kugeln (3,50€)</label>
-                <input type="radio" name="Kugeln" value="4" id="radio7" class="5 Kugeln" required />
-                <label for="radio7">5 Kugeln (4€)</label>
-            </fieldset> -->
-            <fieldset name="Sorten">
-                <h2>Eissorten</h2>
+                <label for="radio2">Becher</label> -->
+        </fieldset>
+        <fieldset id="Sorten">
+            <!-- <h2>Eissorten</h2>
                 Schokolade:
                 <input type="number" name="Stepper" class="Schokolade" id="0" step="1" min="0" max="6" value="0" />
                 Nuss:
@@ -80,10 +67,10 @@
                 <input type="number" name="Stepper" class="Eistee Pfirsich" id="0" step="1" min="0" max="6" value="0" />
                 Star Wars Versorgungsriegel:
                 <input type="number" name="Stepper" class="Star Wars Versorgungsriegel" id="0" step="1" min="0" max="6"
-                    value="0" />
-            </fieldset>
-            <fieldset name="Extras">
-                <h2> Extras (Alle je + 0,50€</h2>
+                    value="0" /> -->
+        </fieldset>
+        <fieldset id="Extras">
+            <!-- <h2> Extras (Alle je + 0,50€</h2>
                 <input type="checkbox" name="Streusel" class="Streusel" id="check1" value="0.50" />
                 <label for="check1">Streusel</label>
                 <input type="checkbox" name="Schokosoße" class="Schokolade" id="check2" value="0.50" />
@@ -91,10 +78,9 @@
                 <input type="checkbox" name="Karamelsoße" class="Karamelsoße" id="check3" value="0.50" />
                 <label for="check3">Karamelsoße</label>
                 <input type="checkbox" name="Sahne" class="Sahne" id="check4" value="0.50" />
-                <label for="check4">Sahne</label>
-            </fieldset>
+                <label for="check4">Sahne</label> -->
         </fieldset>
-    </form>
+    </fieldset>
     <div id="checkout">
         <fieldset id="text">
             <h3>Checkout</h3>
@@ -122,15 +108,17 @@
         <fieldset id="checkorder">
             <legend> Check order</legend>
             <h2>Wahl:</h2>
-            <ol id="Order">
-
-            </ol>
-            <div class="Preis">Preis gesamt:
-                <span id="showprice">0</span><span class="euro">€</span>
+            <div id="Order">
+                <a>Form:</a> <a id="BecheroderWaffel"></a> <br>
+                <a>Sorte 1:</a> <a id="Kugel1"></a> <br>
+            </div>
+            <div id="Preis">Preis gesamt:
+                <span id="showprice">0</span>
             </div>
             <br>
             <button id="checkButton">Bestellung überprüfen</button>
         </fieldset>
+
     </div>
 </body>
 
