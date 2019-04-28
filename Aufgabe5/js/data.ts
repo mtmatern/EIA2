@@ -6,22 +6,35 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 auch nicht diktiert. */
 
 namespace task5 {
-	export interface icecreams {
+	export interface HeteroPredefined {
+		type: string;
 		name: string;
-		preis: number;
+		price: number;
+		value: number;
+		id: string;
+		class: string;
 	}
-	
-	export let waffelbecher: icecreams[] = [{ name: "Waffel", preis: 0.50 }, { name: "Becher", preis: 0.00 }];
 
-	export let schokolade: icecreams[] = [{ name: "Schokolade", preis: 1.00 }];
-	export let nuss: icecreams[] = [{ name: "Nuss", preis: 1.00 }];
-	export let cookies: icecreams[] = [{ name: "Cookies", preis: 1.00 }]
-	export let stracciatella: icecreams[] = [{ name: "Stracciatella", preis: 1.00 }]
+	export interface HomogenousArray {
+		[array: string]: HeteroPredefined[];
+	}
 
-	export let streusel: icecreams[] = [{ name: "Streusel", preis: 0.50 }];
-	export let schokosoße: icecreams[] = [{ name: "Schokosoße", preis: 0.50 }];
-	export let karamelsoße: icecreams[] = [{ name: "Karamelsoße", preis: 0.50 }];
-	export let sahne: icecreams[] = [{ name: "Sahne", preis: 0.50 }];
+	export let product: HomogenousArray = {
+		"anrichtung": [
+			{ type: "radio", name: "waffelbecher", price: 0.50, value: 0, id: "radio1", class: "Waffel" },
+			{ type: "radio", name: "waffelbecher", price: 0.00, value: 0, id: "radio2", class: "Becher" },
+		],
+
+
+		"icecreams": [
+			{ type: "number", name: "Schokolade", price: 1, value: 0, id: "Schokolade", class: "Schokolade" },
+			{ type: "number", name: "Nuss", price: 1, value: 0, id: "Nuss", class: "Nuss" },
+			{ type: "number", name: "Cookies", price: 1, value: 0, id: "Cookies", class: "Cookies" },
+			{ type: "number", name: "Stracciatella", price: 1, value: 0, id: "Stracciatella", class: "Stracciatella" },
+		]
+
+
+	}
 
 	/* = {
 	"sorten": [

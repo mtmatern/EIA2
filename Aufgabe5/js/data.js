@@ -6,15 +6,18 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 auch nicht diktiert. */
 var task5;
 (function (task5) {
-    task5.waffelbecher = [{ name: "Waffel", preis: 0.50 }, { name: "Becher", preis: 0.00 }];
-    task5.schokolade = [{ name: "Schokolade", preis: 1.00 }];
-    task5.nuss = [{ name: "Nuss", preis: 1.00 }];
-    task5.cookies = [{ name: "Cookies", preis: 1.00 }];
-    task5.stracciatella = [{ name: "Stracciatella", preis: 1.00 }];
-    task5.streusel = [{ name: "Streusel", preis: 0.50 }];
-    task5.schokosoße = [{ name: "Schokosoße", preis: 0.50 }];
-    task5.karamelsoße = [{ name: "Karamelsoße", preis: 0.50 }];
-    task5.sahne = [{ name: "Sahne", preis: 0.50 }];
+    task5.product = {
+        "anrichtung": [
+            { type: "radio", name: "waffelbecher", price: 0.50, value: 0, id: "radio1", class: "Waffel" },
+            { type: "radio", name: "waffelbecher", price: 0.00, value: 0, id: "radio2", class: "Becher" },
+        ],
+        "icecreams": [
+            { type: "number", name: "Schokolade", price: 1, value: 0, id: "Schokolade", class: "Schokolade" },
+            { type: "number", name: "Nuss", price: 1, value: 0, id: "Nuss", class: "Nuss" },
+            { type: "number", name: "Cookies", price: 1, value: 0, id: "Cookies", class: "Cookies" },
+            { type: "number", name: "Stracciatella", price: 1, value: 0, id: "Stracciatella", class: "Stracciatella" },
+        ]
+    };
     /* = {
     "sorten": [
         {type:"number", name:"Stepper", value: 1, id:"check1", class:"1 Kugel Schoko"},
