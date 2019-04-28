@@ -1,7 +1,7 @@
 /*
 Aufgabe: 5 Name: Manuel Matern
 Matrikel: 261185
-Datum: 25.04.2019
+Datum: 28.04.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
 auch nicht diktiert. */
 
@@ -13,6 +13,8 @@ namespace task5 {
 		value: number;
 		id: string;
 		class: string;
+		minimum: number;
+		maximum: number;
 	}
 
 	export interface HomogenousArray {
@@ -20,20 +22,34 @@ namespace task5 {
 	}
 
 	export let product: HomogenousArray = {
-		"anrichtung": [
-			{ type: "radio", name: "waffelbecher", price: 0.50, value: 0, id: "radio1", class: "Waffel" },
-			{ type: "radio", name: "waffelbecher", price: 0.00, value: 0, id: "radio2", class: "Becher" },
+		"Wähle deine Anrichtung:": [
+			{ type: "radio", name: "waffelbecher", price: 0.50, value: 0, id: "radio1", class: "Waffel", minimum: 0, maximum: 0 },
+			{ type: "radio", name: "waffelbecher", price: 0.00, value: 0, id: "radio2", class: "Becher", minimum: 0, maximum: 0 },
 		],
 
 
-		"icecreams": [
-			{ type: "number", name: "Schokolade", price: 1, value: 0, id: "Schokolade", class: "Schokolade" },
-			{ type: "number", name: "Nuss", price: 1, value: 0, id: "Nuss", class: "Nuss" },
-			{ type: "number", name: "Cookies", price: 1, value: 0, id: "Cookies", class: "Cookies" },
-			{ type: "number", name: "Stracciatella", price: 1, value: 0, id: "Stracciatella", class: "Stracciatella" },
-		]
+		"Icecreams:": [
+			{ type: "number", name: "Schokolade", price: 1, value: 0, id: "Schokolade", class: "Schokolade", minimum: 0, maximum: 6 },
+			{ type: "number", name: "Nuss", price: 1, value: 0, id: "Nuss", class: "Nuss", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Cookies", price: 1, value: 0, id: "Cookies", class: "Cookies", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Stracciatella", price: 1, value: 0, id: "Stracciatella", class: "Stracciatella", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Heidelbeere", price: 1, value: 0, id: "Heidelbeere", class: "Heidelbeere", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Mango", price: 1, value: 0, id: "Mango", class: "Mango", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Erdbeere", price: 1, value: 0, id: "Erdbeere", class: "Erdbeere", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Vanille", price: 1, value: 0, id: "Vanille", class: "Vanille", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Banane", price: 1, value: 0, id: "Banane", class: "Banane", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Himbeer", price: 1, value: 0, id: "Himbeer", class: "Himbeer", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Zitrone", price: 1, value: 0, id: "Zitrone", class: "Zitrone", minimum: 0, maximum: 6  },
+			{ type: "number", name: "Apfel", price: 1, value: 0, id: "Apfel", class: "Apfel", minimum: 0, maximum: 6  },
+			
+		],
 
-
+		"Extras:": [
+			{ type: "checkbox", name: "Streusel", price: 0.50, value: 0, id: "check1", class: "Streusel", minimum: 0, maximum: 0 },
+			{ type: "checkbox", name: "Schokosoße", price: 0.50, value: 0, id: "check2", class: "Schokosoße", minimum: 0, maximum: 0  },
+			{ type: "checkbox", name: "Karamelsoße", price: 0.50, value: 0, id: "check3", class: "Karamelsoße", minimum: 0, maximum: 0  },
+			{ type: "checkbox", name: "Sahne", price: 0.50, value: 0, id: "check4", class: "Sahne", minimum: 0, maximum: 0  },
+		],
 	}
 
 	/* = {

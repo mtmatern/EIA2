@@ -81,8 +81,8 @@
                 <label for="check4">Sahne</label>
         </fieldset> -->
     </fieldset>
-    <div id="checkout">
-        <fieldset id="text">
+    <div id="lieferung">
+        <fieldset id="checkout">
             <h3>Checkout</h3>
             <legend> Lieferoptionen </legend>
             Name:
@@ -100,18 +100,18 @@
             <hr />
             Mail
             <input type="email" name="Mail" placeholder="place @ between" required /><br>
+
             <input type="radio" name="Versand" value="0.00" id="radio8" class="Standard Versand" required />
             <label for="radio8">Standard Versand</label>
-            <input type="radio" name="Versand" value="2.50" id="radio9" class="Express Versand (+2,50€)" required />
+            <input type="radio" name="Versand" value="0.00" id="radio9" class="Express Versand" required />
             <label for="radio9">Express Versand</label>
         </fieldset>
         <fieldset id="checkorder">
             <legend> Check order</legend>
             <h2>Wahl:</h2>
-            <div id="Order">
-                <a>Form:</a> <a id="BecheroderWaffel"></a> <br>
-                <a>Sorte 1:</a> <a id="Kugel1"></a> <br>
-            </div>
+            <ol id="Order">
+
+            </ol>
             <div id="Preis">Preis gesamt:
                 <span id="showprice">0</span>
             </div>

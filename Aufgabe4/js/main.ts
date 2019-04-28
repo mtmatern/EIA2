@@ -37,9 +37,10 @@ namespace task4 {
             }
             if (input[i].name == "Stepper") {
                 let stepperNumber: number = Number(input[i].value);
-                console.log(input[i].value);
+                console.log(stepperNumber)
                 /* let preisStepper: number = Number(input[i].id); */
                 n += stepperNumber /* * preisStepper; */
+                console.log("N ist jetzt:" + n)
                 if (stepperNumber > 0) {
                     let OrderName: HTMLLIElement = document.createElement("li");
                     OrderName.innerHTML = `<p>${stepperNumber} ${input[i].className}</p>`
