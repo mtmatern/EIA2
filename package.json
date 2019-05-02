@@ -1,0 +1,16 @@
+{
+	"name": "meinserver",
+	"version": "1.0.0",
+	"description": "Server sein Vater",
+	"author": "Manuel",
+	"main": "server.js",
+	"scripts": {
+		"start": "node Aufgabe6/server.js"
+	},
+	"engines": {
+		"node": "8.11.3"
+	},
+	"dependencies": {
+		"@types/node": "^11.13.8"
+	}
+}
