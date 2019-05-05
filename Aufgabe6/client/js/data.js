@@ -1,7 +1,7 @@
 /*
 Aufgabe: 6 Name: Manuel Matern
 Matrikel: 261185
-Datum: 28.04.2019
+Datum: 05.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
 auch nicht diktiert. */
 var task6;
