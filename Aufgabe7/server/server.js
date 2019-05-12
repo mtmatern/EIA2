@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
-//import * as Url from "url";
+const Url = require("url");
 var L05_Server;
 (function (L05_Server) {
     console.log("Starting server");
@@ -20,10 +20,9 @@ var L05_Server;
         console.log(_request.url);
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        /* let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+        let url = Url.parse(_request.url, true);
         for (let key in url.query)
-            _response.write(key + ":" + url.query[key] + "<br/>") */ ;
-        //_response.write(_request.url);
+            _response.write(key + ":" + url.query[key] + "<br/>");
         _response.end();
     }
 })(L05_Server || (L05_Server = {}));

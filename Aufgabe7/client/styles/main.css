@@ -1,0 +1,56 @@
+/*main.css*/
+/*
+Aufgabe: 5 Name: Manuel Matern
+Matrikel: 261185
+Datum: 28.04.2019
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und
+auch nicht diktiert. */
+
+header {
+  background-color: aqua;
+  text-align: center;
+  font-size: 2rem;
+  border: solid black;
+}
+
+
+#container {
+  float: left;
+}
+
+#checkout {
+  float: left;
+
+}
+
+#checkorder {
+
+  float: center;
+}
+
+#wahlüberschriften {
+  font-size: 1.5rem;
+}
+
+fieldset {
+  background-color: aquamarine;
+}
+
+legend {
+  font-size: 2rem;
+}
+
+input, select {
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#iceLabel {
+  margin-left: 5px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+

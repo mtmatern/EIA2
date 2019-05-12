@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <title>Eisdealer</title>
+</head>
+
+<body>
+    <header>
+        <span>EISDEALER</span>
+    </header>
+    <!-- <form action="" method="get" > --><!-- id="serverAction" -->
+        <fieldset id="container"> <!--  action="server.js" -->
+            <legend>Stelle dein Eis zusammen:</legend>
+
+        </fieldset>
+
+        <div id="lieferung">
+            <fieldset id="checkout">
+                <h3>Checkout</h3>
+                <legend> Lieferoptionen </legend>
+                Name:
+                <input type="text" name="Name" placeholder="Name" required />
+                <hr />
+                Vorname:
+                <input type="text" name="Vorname" placeholder="Vorname" required />
+                <hr />
+                Straße und Hausnummer
+                <input type="text" name="Straße und Hausnr." placeholder="Straße und Hausnr." required /><br>
+                Ort
+                <input type="text" name="Ort" placeholder="Ort" required />
+                PLZ
+                <input type="text" name="PLZ" placeholder="PLZ" pattern="[0-9]{5}" required />
+                <hr />
+                Mail
+                <input type="email" name="Mail" placeholder="place @ between" required /><br>
+
+                <input type="radio" name="Versand" value= "" id="radio8" class="Standard" required />
+                <label for="radio8">Standard Versand</label>
+                <input type="radio" name="Versand" value= "" id="radio9" class="Express" required />
+                <label for="radio9">Express Versand</label>
+            </fieldset>
+            <fieldset id="checkorder">
+                <legend> Check order</legend>
+                <h2>Wahl:</h2>
+                <ol id="Order">
+
+                </ol>
+                <div id="Preis">Preis gesamt:
+                    <span id="showprice">0</span>
+                </div>
+                <br>
+                <button type="button" id="checkButton">Bestellung überprüfen</button>
+                <button type="button" id="sendButton">Bestellung absenden</button>
+            </fieldset>
+
+
+        </div>
+        <fieldset id="serverResponse">
+                
+
+        </fieldset>
+    <!-- </form> -->
+</body>
+
+</html>
