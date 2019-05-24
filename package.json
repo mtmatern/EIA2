@@ -5,7 +5,7 @@
 	"author": "Manuel",
 	"main": "server.js",
 	"scripts": {
-		"start": "node Aufgabe9/server/server.js"
+		"start": "node Aufgabe9/Server/Server.js"
 	},
 	"engines": {
 		"node": "8.11.3"
