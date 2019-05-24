@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const Mongo = require("mongodb");
 console.log("Database starting");
-let databaseURL = "mongodb://localhost:8100/"; //neue datenbank erstellt
+let databaseURL = "mongodb://localhost:27017/"; //neue datenbank erstellt
 let databaseName = "Test";
 let db; //typ Mongo.Db ist von Mongo bereit gestellt
 let students;

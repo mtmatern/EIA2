@@ -5,7 +5,7 @@
 import * as Mongo from "mongodb";
 console.log("Database starting");
 
-let databaseURL: string = "mongodb://localhost:8100/"; //neue datenbank erstellt
+let databaseURL: string = "mongodb://localhost:27017/"; //neue datenbank erstellt
 let databaseName: string = "Test";
 let db: Mongo.Db; //typ Mongo.Db ist von Mongo bereit gestellt
 let students: Mongo.Collection;
