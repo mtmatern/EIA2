@@ -60,7 +60,7 @@ export function findAll(_callback: Function): void { //aufgerufen bei switch ins
 }
 
 export function find(_callback: Function, _input: Number): void {
-    let cursor: Mongo.Cursor = students.find({matirkel: _input});
+    let cursor: Mongo.Cursor = students.find({matrikel: _input});
     cursor.toArray(prepareAnswer);
 
     function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
