@@ -5,7 +5,7 @@
 	"author": "Manuel",
 	"main": "server.js",
 	"scripts": {
-		"start": "node Aufgabe7/server/server.js"
+		"start": "node Aufgabe9/server/server.js"
 	},
 	"engines": {
 		"node": "8.11.3"
@@ -13,6 +13,6 @@
 	"dependencies": {
 		"@types/mongodb": "^3.1.27",
 		"@types/node": "^11.13.8",
-		"mongodb": "^3.2.5"
+		"mongodb": "^3.2.6"
 	}
 }

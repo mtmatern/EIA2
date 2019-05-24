@@ -13,8 +13,8 @@ let students: Mongo.Collection;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
-    databaseURL = "mongodb+srv://testuser:testpassword@eia2-57vpd.mongodb.net/eia2";
-    databaseName = "eia2";
+    databaseURL = "mongodb+srv://manutest:0987654321@datenbankmanu-cti1q.mongodb.net/Task9";
+    databaseName = "Task9";
 }
 
 // try to connect to database, then activate callback "handleConnect" 
@@ -44,12 +44,25 @@ function handleInsert(_e: Mongo.MongoError): void {
 // try to fetch all documents from database, then activate callback
 export function findAll(_callback: Function): void { //aufgerufen bei switch insert in server.ts. Erwartet eine Funktion als übergabe Parameter
     // cursor points to the retreived set of documents in memory
-    var cursor: Mongo.Cursor = students.find(); //rufen students auf mit find also wie db.students.find
+    let cursor: Mongo.Cursor = students.find(); //rufen students auf mit find also wie db.students.find
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer); //legen einen Cursor an. Ein Zeiger auf alle Sachen die wir gefunden haben. Holt die wichtigen Daten, speichert diese in ein Arry. Rufe prepare answer auf.
 
     // toArray-handler receives two standard parameters, an error object and the array
     // implemented as inner function, so _callback is in scope
+    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            // stringify creates a json-string, passed it back to _callback
+            _callback(JSON.stringify(studentArray)); //callback bekommt hier das array aus toArray in Z.49
+    }
+}
+
+export function find(_callback: Function, _input: Number): void {
+    let cursor: Mongo.Cursor = students.find({matirkel: _input});
+    cursor.toArray(prepareAnswer);
+
     function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
         if (_e)
             _callback("Error" + _e);

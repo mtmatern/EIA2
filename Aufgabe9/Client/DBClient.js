@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var DBClient;
 (function (DBClient) {
     window.addEventListener("load", init);
-    let serverAddress = "http://localhost:8100/";
-    //let serverAddress: string = "https://<your>.herokuapp.com/";
+    //let serverAddress: string = "http://localhost:8100/";
+    let serverAddress = "https://bollerwagenserver.herokuapp.com/";
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
@@ -23,6 +23,11 @@ var DBClient;
     }
     function refresh(_event) {
         let query = "command=refresh"; /* Sende die Anfrage mit dem command refresh localhost:8100/? command = refresh*/
+        sendRequest(query, handleFindResponse);
+    }
+    function search(_event) {
+        let query = "command=search";
+        query += "&matrikel=" + document.getElementById("search").value;
         sendRequest(query, handleFindResponse);
     }
     function sendRequest(_query, _callback) {

@@ -2,8 +2,8 @@ import { SSL_OP_SINGLE_DH_USE } from "constants";
 
 namespace DBClient {
     window.addEventListener("load", init);
-    let serverAddress: string = "http://localhost:8100/";
-    //let serverAddress: string = "https://<your>.herokuapp.com/";
+    //let serverAddress: string = "http://localhost:8100/";
+    let serverAddress: string = "https://bollerwagenserver.herokuapp.com/";
 
     function init(_event: Event): void {
         console.log("Init");
@@ -25,6 +25,12 @@ namespace DBClient {
 
     function refresh(_event: Event): void {
         let query: string = "command=refresh"; /* Sende die Anfrage mit dem command refresh localhost:8100/? command = refresh*/
+        sendRequest(query, handleFindResponse);
+    }
+
+    function search(_event: Event): void {
+        let query: string = "command=search";
+        query += "&matrikel=" + (< HTMLInputElement>document.getElementById("search")).value;
         sendRequest(query, handleFindResponse);
     }
 

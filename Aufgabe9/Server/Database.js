@@ -13,8 +13,8 @@ let students;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
-    databaseURL = "mongodb+srv://testuser:testpassword@eia2-57vpd.mongodb.net/eia2";
-    databaseName = "eia2";
+    databaseURL = "mongodb+srv://manutest:0987654321@datenbankmanu-cti1q.mongodb.net/Task9";
+    databaseName = "Task9";
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect); //gibt eine Funktion auf dem clioent die heist connect und die gibt er die url mit. Bedingung wenn du nach 8 sekunden keine antwort kriegst hats nicht geklappt. handle connect
@@ -40,7 +40,7 @@ function handleInsert(_e) {
 // try to fetch all documents from database, then activate callback
 function findAll(_callback) {
     // cursor points to the retreived set of documents in memory
-    var cursor = students.find(); //rufen students auf mit find also wie db.students.find
+    let cursor = students.find(); //rufen students auf mit find also wie db.students.find
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer); //legen einen Cursor an. Ein Zeiger auf alle Sachen die wir gefunden haben. Holt die wichtigen Daten, speichert diese in ein Arry. Rufe prepare answer auf.
     // toArray-handler receives two standard parameters, an error object and the array
@@ -54,5 +54,17 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
+function find(_callback, _input) {
+    let cursor = students.find({ matirkel: _input });
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, studentArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            // stringify creates a json-string, passed it back to _callback
+            _callback(JSON.stringify(studentArray)); //callback bekommt hier das array aus toArray in Z.49
+    }
+}
+exports.find = find;
 //Suchfunktion anpassen 
 //# sourceMappingURL=Database.js.map
