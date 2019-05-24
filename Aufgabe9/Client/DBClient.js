@@ -1,5 +1,4 @@
-//"use strict";
-//Object.defineProperty(exports, "__esModule", { value: true });
+//import { SSL_OP_SINGLE_DH_USE } from "constants";
 var DBClient;
 (function (DBClient) {
     window.addEventListener("load", init);
