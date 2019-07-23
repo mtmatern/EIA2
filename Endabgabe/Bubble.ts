@@ -17,6 +17,7 @@ namespace endabgabe {
             let bubble: Path2D = new Path2D();
             bubble.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             crc.fillStyle = "darkblue";
+            crc.strokeStyle = "Black"
             crc.fill(bubble);
             crc.stroke(bubble);
 

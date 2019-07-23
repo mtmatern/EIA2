@@ -1,8 +1,11 @@
 namespace endabgabe {
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("keydown", keyPressed);
+    document.addEventListener("keyup", keyReleased);
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
+    export let score: number = 0;
+    export let playerName: string;
     let seaworldthingsArray: SeaworldThings[] = [];
 
     let gamingFish: GamingFish;
@@ -30,7 +33,7 @@ namespace endabgabe {
             seaworldthingsArray.push(fish1);
             fish1.draw();
         }
-        for (let i: number = 0; i < 8; i++) {
+        for (let i: number = 0; i < 20; i++) {
             let fish2: Fish2;
             fish2 = new Fish2();
             seaworldthingsArray.push(fish2);
@@ -56,28 +59,55 @@ namespace endabgabe {
         switch (_event.keyCode) {
             case 65: {
             //Left arrow was pressed
-                gamingFish.move("left");
+                gamingFish.dx = -10;
                 break;
             }
             case 68: { 
             //Right arrow was pressed
-                gamingFish.move("right");
+                gamingFish.dx = 10;
                 break;
             } 
             case 87: {
             //Up arrow was pressed
-                gamingFish.move("up");
+                gamingFish.dy = -10;
                 break;
             }
             case 83: {
             //Down arrow was pressed
-                gamingFish.move("down");
+                gamingFish.dy = 10;
                 break;
             } 
           
           
         }
-      }
+    }
+
+    function keyReleased(_event: KeyboardEvent){
+        switch (_event.keyCode) {
+            case 65: {
+            //Left arrow was pressed
+                gamingFish.dx = 0;
+                break;
+            }
+            case 68: { 
+            //Right arrow was pressed
+                gamingFish.dx = 0;
+                break;
+            } 
+            case 87: {
+            //Up arrow was pressed
+                gamingFish.dy = 0;
+                break;
+            }
+            case 83: {
+            //Down arrow was pressed
+                gamingFish.dy = 0;
+                break;
+            } 
+          
+          
+        }
+    }
 
     function spawnSnacks(_event: MouseEvent): void {
         let xMousePos: number = _event.clientX;
@@ -95,22 +125,43 @@ namespace endabgabe {
 
     }
 
+    let timeout: number;
+
     function update(): void {
-        window.setTimeout(update, 1000 / fps);
+       timeout = window.setTimeout(update, 1000 / fps);
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
         for (let i: number = 0; i < seaworldthingsArray.length; i++) {
             seaworldthingsArray[i].update();
         }
-        gamingFish.draw();
+        gamingFish.update();
 
         collisionWithOtherFish();
     }
 
     function collisionWithOtherFish(): void {
-        for(let i: number = 0; i<= seaworldthingsArray.length; i++){
-    }
+        for(let i: number = 0; i < seaworldthingsArray.length; i++){
+            let sAi: SeaworldThings = seaworldthingsArray[i];
+            let distanceX: number = sAi.x - gamingFish.x;
+            let distanceY: number = sAi.y - gamingFish.y;
+            let distance: number = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+            let distanceHitbox: number = distance - gamingFish.hitboxRadius - sAi.hitboxRadius;
+
+            if(distanceHitbox < 0) {
+                if(gamingFish.hitboxRadius > sAi.hitboxRadius) {
+                seaworldthingsArray.splice(i, 1);
+                gamingFish.hitboxRadius += 2;
+                score += 5;
+                gamingFish.headRadiusX += 2;
+                }
+                if(gamingFish.hitboxRadius < sAi.hitboxRadius) {
+                gameOver();;
+                }
+            }
+            
+        }
+    }   
 
 
     function drawBackground(): void {
@@ -198,6 +249,15 @@ namespace endabgabe {
         crc.fillStyle = "green";
         crc.fill(alga);
         crc.stroke(alga);
+    }
+    
+    
+
+    export function gameOver(): void {
+        window.clearTimeout(timeout);
+        playerName = prompt("Score: " + score, "Type your name here");
+        //insert();
+        location.reload();
     }
 
     

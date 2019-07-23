@@ -6,6 +6,8 @@ namespace endabgabe{
         dx: number;
         dy: number;
 
+        hitboxRadius: number;
+
         constructor() {
             //;
         }

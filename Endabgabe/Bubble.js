@@ -13,6 +13,7 @@ var endabgabe;
             let bubble = new Path2D();
             bubble.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             endabgabe.crc.fillStyle = "darkblue";
+            endabgabe.crc.strokeStyle = "Black";
             endabgabe.crc.fill(bubble);
             endabgabe.crc.stroke(bubble);
             let bubble2 = new Path2D();

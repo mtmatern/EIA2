@@ -5,13 +5,16 @@ var endabgabe;
             this.x = endabgabe.canvas.width / 2;
             this.y = endabgabe.canvas.height / 2;
             this.dx = 0;
-            this.dy = 30;
+            this.dy = 0;
+            this.hitboxRadius = 20;
+            this.headRadiusX = 20;
         }
         draw() {
             if (this.dx < 0) {
                 let fishHead = new Path2D();
-                fishHead.ellipse(this.x, this.y, 20, 40, -1.5, 0, 2 * Math.PI);
+                fishHead.ellipse(this.x, this.y, this.headRadiusX, 40, -1.5, 0, 2 * Math.PI);
                 //fishHead.ellipse()
+                endabgabe.crc.strokeStyle = "Black";
                 endabgabe.crc.fillStyle = "Red";
                 endabgabe.crc.fill(fishHead);
                 endabgabe.crc.stroke(fishHead);
@@ -34,11 +37,17 @@ var endabgabe;
                 endabgabe.crc.fillStyle = "Gold";
                 endabgabe.crc.fill(fishTail);
                 endabgabe.crc.stroke(fishTail);
+                let hitBox = new Path2D();
+                hitBox.ellipse(this.x, this.y, this.hitboxRadius, 40, -1.5, 0, 2 * Math.PI);
+                //crc.strokeStyle = "#8494FF61";
+                endabgabe.crc.strokeStyle = "yellow";
+                endabgabe.crc.stroke(hitBox);
             }
             if (this.dx >= 0) {
                 let fishHead = new Path2D();
-                fishHead.ellipse(this.x, this.y, 20, 40, 1.5, 0, 2 * Math.PI);
+                fishHead.ellipse(this.x, this.y, this.headRadiusX, 40, 1.5, 0, 2 * Math.PI);
                 //fishHead.ellipse()
+                endabgabe.crc.strokeStyle = "Black";
                 endabgabe.crc.fillStyle = "Red";
                 endabgabe.crc.fill(fishHead);
                 endabgabe.crc.stroke(fishHead);
@@ -61,19 +70,19 @@ var endabgabe;
                 endabgabe.crc.fillStyle = "Gold";
                 endabgabe.crc.fill(fishTail);
                 endabgabe.crc.stroke(fishTail);
+                let hitBox = new Path2D();
+                hitBox.ellipse(this.x, this.y, this.hitboxRadius, 40, 1.5, 0, 2 * Math.PI);
+                //crc.strokeStyle = "#8494FF61";
+                endabgabe.crc.strokeStyle = "yellow";
+                endabgabe.crc.stroke(hitBox);
             }
-            let hitBox = new Path2D();
-            hitBox.arc(this.x, this.y, 20, 1.5, 0);
-            //crc.strokeStyle = "#8494FF61";
-            endabgabe.crc.strokeStyle = "yellow";
-            endabgabe.crc.stroke(hitBox);
         }
         update() {
+            this.move();
             this.draw();
         }
-        //bewegt noch nichts
-        move(_direction) {
-            switch (_direction) {
+        move() {
+            /* switch(_direction) {
                 case "left": {
                     this.dx = -30;
                     this.x += this.dx;
@@ -92,6 +101,20 @@ var endabgabe;
                     this.y += this.dy;
                     break;
                 }
+            } */
+            this.x += this.dx;
+            this.y += this.dy;
+            if (this.x + 80 < 0) {
+                this.x = 1080;
+            }
+            if (this.x - 80 > 1000) {
+                this.x = -80;
+            }
+            if (this.y - 80 > 600) {
+                this.y = -80;
+            }
+            if (this.y + 80 < 0) {
+                this.y = 680;
             }
         }
     }

@@ -1,8 +1,6 @@
 var endabgabe;
 (function (endabgabe) {
     class Fish1 extends endabgabe.SeaworldThings {
-        //scale: number;
-        //a: number;
         constructor() {
             super();
             this.x = Math.random() * endabgabe.canvas.width;
@@ -13,6 +11,7 @@ var endabgabe;
             //this.scale = Math.random() * 2 + 1;
             this.radiusX = Math.random() * 40 + 20;
             this.radiusY = Math.random() * 60 + 40;
+            this.hitboxRadius = this.radiusX;
         }
         draw() {
             let fishHead = new Path2D();
@@ -43,7 +42,8 @@ var endabgabe;
             endabgabe.crc.fill(fishTail);
             endabgabe.crc.stroke(fishTail);
             let hitBox = new Path2D();
-            hitBox.arc(this.x, this.y, 20, 1.5, 0);
+            //hitBox.arc(this.x, this.y, this.hitboxRadius, 0, 2 * Math.PI);
+            hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.radiusY, 1.5, 0, 2 * Math.PI);
             //crc.strokeStyle = "#8494FF61";
             endabgabe.crc.strokeStyle = "yellow";
             endabgabe.crc.stroke(hitBox);

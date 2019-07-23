@@ -5,6 +5,7 @@ namespace endabgabe {
         radiusY: number;
         //scale: number;
         //a: number;
+        hitboxRadius: number;
 
         constructor(){
             super();
@@ -14,9 +15,12 @@ namespace endabgabe {
             this.dy = Math.random() * 2 - 1;
             //this.a = Math.random() * 2 + 1;
             //this.scale = Math.random() * 2 + 1;
+            
 
             this.radiusX = Math.random() * 40 + 20;
             this.radiusY = Math.random() * 60 + 40;
+            
+            this.hitboxRadius = this.radiusX;
         }
 
         draw(): void {
@@ -52,7 +56,8 @@ namespace endabgabe {
             crc.stroke(fishTail);
 
             let hitBox: Path2D = new Path2D();
-            hitBox.arc(this.x, this.y, 20, 1.5, 0);
+            //hitBox.arc(this.x, this.y, this.hitboxRadius, 0, 2 * Math.PI);
+            hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.radiusY, 1.5, 0, 2 * Math.PI);
             //crc.strokeStyle = "#8494FF61";
             crc.strokeStyle = "yellow";
             crc.stroke(hitBox);
