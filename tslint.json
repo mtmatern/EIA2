@@ -57,6 +57,6 @@
 		],
 		"use-strict": [false, "check-module", "check-function"],
 		"variable-name": [true, "check-format", "allow-leading-underscore"],
-		"whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"]
+		"whitespace": [false, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"]
 	}
 }
