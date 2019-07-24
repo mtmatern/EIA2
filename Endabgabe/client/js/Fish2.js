@@ -3,13 +3,14 @@ var endabgabe;
     class Fish2 extends endabgabe.SeaworldThings {
         constructor() {
             super();
-            this.x = Math.random() * endabgabe.canvas.width;
+            this.x = (Math.floor(Math.random() * endabgabe.canvas.width) - endabgabe.canvas.width / 2 - 100);
             this.y = Math.random() * endabgabe.canvas.height;
             this.dx = Math.random() * 1 - 2;
             this.dy = Math.random() * 2 - 1;
             this.radiusX = Math.random() * 20 + 5;
             this.radiusY = Math.random() * 20 + 10;
             this.hitboxRadius = this.radiusX;
+            this.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
         }
         draw() {
             let fishHead = new Path2D();
@@ -17,6 +18,7 @@ var endabgabe;
             //fishHead.ellipse()
             endabgabe.crc.strokeStyle = "Black";
             endabgabe.crc.fillStyle = "IndianRed";
+            //crc.fillStyle = this.color;
             endabgabe.crc.fill(fishHead);
             endabgabe.crc.stroke(fishHead);
             let fishEye = new Path2D();
@@ -38,13 +40,14 @@ var endabgabe;
             fishTail.lineTo(this.x + this.radiusY + 32, this.y + this.radiusX);
             fishTail.closePath();
             endabgabe.crc.stroke(fishTail);
-            endabgabe.crc.fillStyle = "Teal";
+            //crc.fillStyle = "Teal";
+            endabgabe.crc.fillStyle = this.color;
             endabgabe.crc.fill(fishTail);
             endabgabe.crc.stroke(fishTail);
             let hitBox = new Path2D();
             hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.radiusY, -1.5, 0, 2 * Math.PI);
             //crc.strokeStyle = "#8494FF61";
-            endabgabe.crc.strokeStyle = "yellow";
+            endabgabe.crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
             endabgabe.crc.stroke(hitBox);
             super.draw();
         }

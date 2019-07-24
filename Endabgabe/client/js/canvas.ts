@@ -8,7 +8,11 @@ namespace endabgabe {
     export let playerName: string;
     let seaworldthingsArray: SeaworldThings[] = [];
 
-    let gamingFish: GamingFish;
+    export let gamingFish: GamingFish;
+    export let fish1: Fish1;
+    export let fish2: Fish2;
+
+    let round: number = 1;
     
     let fps: number = 30;
     let imageData: ImageData;
@@ -28,13 +32,13 @@ namespace endabgabe {
 
         for (let i: number = 0; i < 12; i++) {
 
-            let fish1: Fish1;
+            
             fish1 = new Fish1();
             seaworldthingsArray.push(fish1);
             fish1.draw();
         }
         for (let i: number = 0; i < 20; i++) {
-            let fish2: Fish2;
+
             fish2 = new Fish2();
             seaworldthingsArray.push(fish2);
             fish2.draw();
@@ -127,18 +131,59 @@ namespace endabgabe {
 
     let timeout: number;
 
+    //let timeoutUpdate: number ;
+    //timeoutUpdate= window.setTimeout(update, 2000);
+
     function update(): void {
-       timeout = window.setTimeout(update, 1000 / fps);
+        timeout = window.setTimeout(update, 1000 / fps);
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
         for (let i: number = 0; i < seaworldthingsArray.length; i++) {
             seaworldthingsArray[i].update();
+            
         }
         gamingFish.update();
 
         collisionWithOtherFish();
-    }
+
+        crc.fillStyle = "black";
+        crc.font = "30px Typewriter";
+        crc.textAlign = "start";
+        crc.fillText("Score: " + score.toString(), 20, 40); 
+        if(seaworldthingsArray.length == 57){
+            crc.fillStyle = "black";
+            crc.font = "100px Arial";
+            crc.textAlign = "center";
+            crc.fillText("ROUND: " + round, canvas.width/2, canvas.height/2);
+            console.log("ROUND: " + round);
+        }
+        if(seaworldthingsArray.length == 25){
+            //location.reload();
+            //console.log("Array leer");
+            //gameOver();
+            round += 1;
+            
+
+            for (let i: number = 0; i < 12; i++) {
+
+            
+                fish1 = new Fish1();
+                seaworldthingsArray.push(fish1);
+                fish1.draw();
+            }
+            for (let i: number = 0; i < 20; i++) {
+    
+                fish2 = new Fish2();
+                seaworldthingsArray.push(fish2);
+                fish2.draw();
+            }
+        } 
+    } 
+    
+    //clearTimeout(timeoutUpdate);
+
+
 
     function collisionWithOtherFish(): void {
         for(let i: number = 0; i < seaworldthingsArray.length; i++){
@@ -146,16 +191,31 @@ namespace endabgabe {
             let distanceX: number = sAi.x - gamingFish.x;
             let distanceY: number = sAi.y - gamingFish.y;
             let distance: number = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
-            let distanceHitbox: number = distance - gamingFish.hitboxRadius - sAi.hitboxRadius;
+            let distanceHitbox: number = distance - gamingFish.hitboxRadiusX - sAi.hitboxRadius;
 
             if(distanceHitbox < 0) {
-                if(gamingFish.hitboxRadius > sAi.hitboxRadius) {
+                if(gamingFish.hitboxRadiusX > sAi.hitboxRadius) {
                 seaworldthingsArray.splice(i, 1);
-                gamingFish.hitboxRadius += 2;
+                
+                gamingFish.hitboxRadiusX += 2;
+                gamingFish.hitboxRadiusY += 2;
+                gamingFish.radiusHeadX += 2;
+                gamingFish.radiusHeadY += 2;
+
+                gamingFish.radiusEye += 0.5;
+
+                gamingFish.radiusIris += 0.2;
+
+                gamingFish.startTailX += 2;
+                //gamingFish.startTailY += 2;
+                gamingFish.sizeTail1 += 3;
+                gamingFish.sizeTail2 += 3;
+                gamingFish.sizeTail3 += 2;
+                gamingFish.sizeTail4 += 2;
+                
                 score += 5;
-                gamingFish.headRadiusX += 2;
                 }
-                if(gamingFish.hitboxRadius < sAi.hitboxRadius) {
+                if(gamingFish.hitboxRadiusX < sAi.hitboxRadius) {
                 gameOver();;
                 }
             }
@@ -250,6 +310,14 @@ namespace endabgabe {
         crc.fill(alga);
         crc.stroke(alga);
     }
+
+    export function highScore(): void {
+        document.getElementById("highscore").innerHTML = "";
+        let scoreDiv: HTMLDivElement = document.createElement("div");
+        scoreDiv.innerHTML = `<div> Your Score: ${score}</div>`;
+        document.getElementById("yourscore").appendChild(scoreDiv);
+    }
+    
     
     
 

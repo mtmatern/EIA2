@@ -8,6 +8,8 @@ namespace endabgabe{
 
         hitboxRadius: number;
 
+        color: string;
+
         constructor() {
             //;
         }

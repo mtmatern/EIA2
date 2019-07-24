@@ -5,10 +5,11 @@ namespace endabgabe {
         radiusY: number;
 
         hitboxRadius: number;
+        color: string;
 
         constructor(){
             super();
-            this.x = Math.random() * canvas.width;
+            this.x = (Math.floor(Math.random() * canvas.width) - canvas.width/2 - 100);
             this.y = Math.random() * canvas.height;
             this.dx = Math.random() * 1 - 2;
             this.dy = Math.random() * 2 - 1;
@@ -16,6 +17,7 @@ namespace endabgabe {
             this.radiusY = Math.random() * 20 + 10;
 
             this.hitboxRadius = this.radiusX;
+            this.color = "rgb("+ Math.floor(Math.random() * 255) + ","+ Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
         }
    
         draw(): void {
@@ -24,6 +26,7 @@ namespace endabgabe {
             //fishHead.ellipse()
             crc.strokeStyle = "Black";
             crc.fillStyle = "IndianRed";
+            //crc.fillStyle = this.color;
             crc.fill(fishHead);
             crc.stroke(fishHead);
 
@@ -48,14 +51,15 @@ namespace endabgabe {
             fishTail.lineTo(this.x + this.radiusY + 32, this.y + this.radiusX);
             fishTail.closePath();
             crc.stroke(fishTail);
-            crc.fillStyle = "Teal";
+            //crc.fillStyle = "Teal";
+            crc.fillStyle = this.color;
             crc.fill(fishTail);
             crc.stroke(fishTail);
 
             let hitBox: Path2D = new Path2D();
             hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.radiusY, -1.5, 0, 2 * Math.PI);
             //crc.strokeStyle = "#8494FF61";
-            crc.strokeStyle = "yellow";
+            crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
             crc.stroke(hitBox);
 
             super.draw();

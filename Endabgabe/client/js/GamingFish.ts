@@ -5,10 +5,26 @@ namespace endabgabe {
         y: number;
         dx: number;
         dy: number;
+        colorHead: string;
 
-        headRadiusX: number;
+        
 
-        hitboxRadius: number;
+        radiusHeadX: number;
+        radiusHeadY: number;
+        radiusEye: number;
+        radiusIris: number;
+        startTailX: number;
+        startTailY: number;
+        sizeTail1: number;
+        sizeTail2: number;
+        sizeTail3: number;
+        sizeTail4: number;
+        
+
+        //headRadiusX: number;
+
+        hitboxRadiusX: number;
+        hitboxRadiusY: number;
 
 
         constructor(){
@@ -16,36 +32,58 @@ namespace endabgabe {
             this.y = canvas.height/2;
             this.dx = 0;
             this.dy = 0;
-            this.hitboxRadius = 20;
-            this.headRadiusX = 20
+            this.colorHead = "Red";
+            
+
+
+            this.radiusHeadX = 20;
+            this.radiusHeadY = 40;
+            
+            this.radiusEye = 5;
+            
+            this.radiusIris = 2;
+
+            this.startTailX = 40;
+            this.startTailY = 2;
+            this.sizeTail1 = this.radiusHeadX + 60;
+            this.sizeTail2 = this.radiusHeadX + 66;
+            this.sizeTail3 = 22;
+            this.sizeTail4 = 10;
+
+            
+            this.hitboxRadiusX = 20;
+            this.hitboxRadiusY = 40;
         }
 
         draw(): void {
             if(this.dx < 0) {
             let fishHead: Path2D = new Path2D();
-            fishHead.ellipse(this.x, this.y, this.headRadiusX, 40, -1.5, 0, 2 * Math.PI);
+            fishHead.ellipse(this.x, this.y, this.radiusHeadX, this.radiusHeadY, -1.5, 0, 2 * Math.PI);
             //fishHead.ellipse()
+           /*  if(this.radiusHeadX >= fish1.radiusX && this.radiusHeadY < fish1.radiusY) {
+                gamingFish.colorHead = ""
+            } */
             crc.strokeStyle = "Black";
-            crc.fillStyle = "Red";
+            crc.fillStyle = this.colorHead;
             crc.fill(fishHead);
             crc.stroke(fishHead);
 
             let fishEye: Path2D = new Path2D();
-            fishEye.arc(this.x - 20, this.y - 2, 5, 0, 2 * Math.PI);
+            fishEye.arc(this.x - 20, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
             crc.fillStyle = "white";
             crc.fill(fishEye);
             crc.stroke(fishEye);
 
             let fishEyeIris: Path2D = new Path2D();
-            fishEyeIris.arc(this.x - 20, this.y - 2, 2, 0, 2 * Math.PI);
+            fishEyeIris.arc(this.x - 20, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
             crc.fillStyle = "black";
             crc.fill(fishEyeIris);
             crc.stroke(fishEyeIris);
 
             let fishTail: Path2D = new Path2D();
-            fishTail.moveTo(this.x + 40, this.y - 2);
-            fishTail.lineTo(this.x + 60, this.y + 22);
-            fishTail.lineTo(this.x + 66, this.y - 10);
+            fishTail.moveTo(this.x + this.startTailX, this.y - this.startTailY);
+            fishTail.lineTo(this.x + this.sizeTail1, this.y + this.sizeTail3);
+            fishTail.lineTo(this.x + this.sizeTail2, this.y - this.sizeTail4);
             fishTail.closePath();
             crc.stroke(fishTail);
             crc.fillStyle = "Gold";
@@ -53,14 +91,14 @@ namespace endabgabe {
             crc.stroke(fishTail);
 
             let hitBox: Path2D = new Path2D();
-            hitBox.ellipse(this.x, this.y, this.hitboxRadius, 40, -1.5, 0, 2 * Math.PI);
+            hitBox.ellipse(this.x, this.y, this.hitboxRadiusX, this.hitboxRadiusY, -1.5, 0, 2 * Math.PI);
             //crc.strokeStyle = "#8494FF61";
-            crc.strokeStyle = "yellow";
+            crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
             crc.stroke(hitBox);
             }
             if(this.dx >= 0) {
                 let fishHead: Path2D = new Path2D();
-                fishHead.ellipse(this.x, this.y, this.headRadiusX, 40, 1.5, 0, 2 * Math.PI);
+                fishHead.ellipse(this.x, this.y, this.radiusHeadX, this.radiusHeadY, 1.5, 0, 2 * Math.PI);
                 //fishHead.ellipse()
                 crc.strokeStyle = "Black";
                 crc.fillStyle = "Red";
@@ -68,21 +106,21 @@ namespace endabgabe {
                 crc.stroke(fishHead);
     
                 let fishEye: Path2D = new Path2D();
-                fishEye.arc(this.x + 20, this.y - 2, 5, 0, 2 * Math.PI);
+                fishEye.arc(this.x + 20, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
                 crc.fillStyle = "white";
                 crc.fill(fishEye);
                 crc.stroke(fishEye);
     
                 let fishEyeIris: Path2D = new Path2D();
-                fishEyeIris.arc(this.x + 20, this.y - 2, 2, 0, 2 * Math.PI);
+                fishEyeIris.arc(this.x + 20, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
                 crc.fillStyle = "black";
                 crc.fill(fishEyeIris);
                 crc.stroke(fishEyeIris);
     
                 let fishTail: Path2D = new Path2D();
-                fishTail.moveTo(this.x - 40, this.y + 2);
-                fishTail.lineTo(this.x - 60, this.y + 22);
-                fishTail.lineTo(this.x - 66, this.y - 10);
+                fishTail.moveTo(this.x - this.startTailX, this.y + this.startTailY);
+                fishTail.lineTo(this.x - this.sizeTail1, this.y + this.sizeTail3);
+                fishTail.lineTo(this.x - this.sizeTail2, this.y - this.sizeTail4);
                 fishTail.closePath();
                 crc.stroke(fishTail);
                 crc.fillStyle = "Gold";
@@ -90,9 +128,9 @@ namespace endabgabe {
                 crc.stroke(fishTail);
 
                 let hitBox: Path2D = new Path2D();
-                hitBox.ellipse(this.x, this.y, this.hitboxRadius, 40, 1.5, 0, 2 * Math.PI);
+                hitBox.ellipse(this.x, this.y, this.hitboxRadiusX, this.hitboxRadiusY, 1.5, 0, 2 * Math.PI);
                 //crc.strokeStyle = "#8494FF61";
-                crc.strokeStyle = "yellow";
+                crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
                 crc.stroke(hitBox);
             }
             
@@ -142,13 +180,5 @@ namespace endabgabe {
                 this.y = 680;
             }
         }
-
-        /*  */
- 
-        /* move(): void{
-
-        }; */
-
-    
     }
 }

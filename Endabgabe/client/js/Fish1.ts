@@ -9,8 +9,8 @@ namespace endabgabe {
 
         constructor(){
             super();
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
+            this.x = (Math.floor(Math.random() * canvas.width) + canvas.width/2); //Math.floor(Math.random() * 6) + 1  
+            this.y = Math.random() * canvas.height - 100;
             this.dx = Math.random() * 2 + 1;
             this.dy = Math.random() * 2 - 1;
             //this.a = Math.random() * 2 + 1;
@@ -21,6 +21,7 @@ namespace endabgabe {
             this.radiusY = Math.random() * 60 + 40;
             
             this.hitboxRadius = this.radiusX;
+            this.color = "rgb("+ Math.floor(Math.random() * 255) + ","+ Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
         }
 
         draw(): void {
@@ -28,6 +29,7 @@ namespace endabgabe {
             fishHead.ellipse(this.x, this.y, this.radiusX, this.radiusY, 1.5, 0, 2 * Math.PI);
             //fishHead.ellipse()
             crc.fillStyle = "DarkSlateGrey";
+            //crc.fillStyle = this.color
             crc.strokeStyle = "Black";
             //crc.scale(0.5, 0.5);
             crc.fill(fishHead);
@@ -51,7 +53,8 @@ namespace endabgabe {
             fishTail.lineTo(this.x - this.radiusY - 32, this.y - this.radiusX);
             fishTail.closePath();
             crc.stroke(fishTail);
-            crc.fillStyle = "Gold";
+            //crc.fillStyle = "Gold";
+            crc.fillStyle = this.color;
             crc.fill(fishTail);
             crc.stroke(fishTail);
 
@@ -59,8 +62,10 @@ namespace endabgabe {
             //hitBox.arc(this.x, this.y, this.hitboxRadius, 0, 2 * Math.PI);
             hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.radiusY, 1.5, 0, 2 * Math.PI);
             //crc.strokeStyle = "#8494FF61";
-            crc.strokeStyle = "yellow";
+            crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
             crc.stroke(hitBox);
+
+            
 
 
             super.draw();
