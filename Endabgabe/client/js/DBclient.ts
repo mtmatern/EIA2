@@ -43,7 +43,7 @@ namespace endabgabe {
             console.log("PLayerliste:" + allPlayers);
             for (let i: number = 0; i < 5; i++) {
                 let divElement: HTMLDivElement = document.createElement("div");
-                divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
+                divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} : ${allPlayers[i].score} </div>`;
                 document.getElementById("highscores").appendChild(divElement);
                 /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[i];
                 output.value = xhr.response;
@@ -53,13 +53,13 @@ namespace endabgabe {
         }
     }
 
-    function compareNumbers(a: Player, b: Player): number { 
-        let scoreA: number = a.score;
-        let scoreB: number = b.score;
-        if (scoreA < scoreB) {
+    function compareNumbers(_scoreOne: Player, _scoreTwo: Player): number { 
+        //let scoreOne: number = _one.score;
+        //let scoreTwo: number = _two.score;
+        if (_scoreOne.score < _scoreTwo.score) {
             return 1;
         }
-        if (scoreA > scoreB) {
+        if (_scoreOne > _scoreTwo) {
             return -1;
         }
         return 0;

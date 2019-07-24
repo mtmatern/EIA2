@@ -36,7 +36,7 @@ var endabgabe;
             console.log("PLayerliste:" + allPlayers);
             for (let i = 0; i < 5; i++) {
                 let divElement = document.createElement("div");
-                divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
+                divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} : ${allPlayers[i].score} </div>`;
                 document.getElementById("highscores").appendChild(divElement);
                 /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[i];
                 output.value = xhr.response;
@@ -45,13 +45,13 @@ var endabgabe;
             }
         }
     }
-    function compareNumbers(a, b) {
-        let scoreA = a.score;
-        let scoreB = b.score;
-        if (scoreA < scoreB) {
+    function compareNumbers(_scoreOne, _scoreTwo) {
+        //let scoreOne: number = _one.score;
+        //let scoreTwo: number = _two.score;
+        if (_scoreOne.score < _scoreTwo.score) {
             return 1;
         }
-        if (scoreA > scoreB) {
+        if (_scoreOne > _scoreTwo) {
             return -1;
         }
         return 0;
