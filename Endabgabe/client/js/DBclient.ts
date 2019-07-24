@@ -21,7 +21,7 @@ namespace endabgabe {
         xhr.send();
     }
 
-    let score: number = 0;
+    //let score: number = 0;
     function handleInsertResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {

@@ -4,7 +4,7 @@ var endabgabe;
     let serverAddress = "https://bollerwagenserver.herokuapp.com/";
     function insert() {
         let query = "command=insert";
-        query += "&name=" + endabgabe.playerName + "&score=" + score;
+        query += "&name=" + endabgabe.playerName + "&score=" + endabgabe.score;
         sendRequest(query, handleInsertResponse);
         console.log(query);
     }
@@ -20,7 +20,7 @@ var endabgabe;
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
     }
-    let score = 0;
+    //let score: number = 0;
     function handleInsertResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
