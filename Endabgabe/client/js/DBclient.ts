@@ -35,27 +35,28 @@ namespace endabgabe {
             let allPlayers: Player[] = JSON.parse(xhr.response);
             //let SortierteScores: string[] = [];
 
-            for (let i: number = 0; i < allPlayers.length; i++) {
+            /* for (let i: number = 0; i < allPlayers.length; i++) {
                 let nameS: string = allPlayers[i].name;
                 let scoreS: number = allPlayers[i].score;
 
                 allPlayers.sort(compareNumbers);
-            }
-           
+            } */
+            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
+            output.value = xhr.response;
+            let responseJASON: JSON = JSON.parse(xhr.response);
+            console.log(responseJASON);
+
             console.log(allPlayers);
             for (let i: number = 0; i < 5; i++) {
                 //let divElement: HTMLDivElement = document.createElement("div");
                 //divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
                 //document.getElementById("highscores").appendChild(divElement);
-                let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-                output.value = xhr.response;
-                let responseJASON: JSON = JSON .parse(xhr.response);
-                console.log(responseJASON);
+
             }
         }
     }
 
-    function compareNumbers(a: Player, b: Player): number { 
+    /* function compareNumbers(a: Player, b: Player): number { 
         let scoreA: number = a.score;
         let scoreB: number = b.score;
         if (scoreA < scoreB) {
@@ -65,5 +66,5 @@ namespace endabgabe {
             return -1;
         }
         return 0;
-    }
+    } */
 }
