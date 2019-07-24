@@ -6,7 +6,7 @@ var endabgabe;
         let query = "command=insert";
         query += "&name=" + endabgabe.playerName + "&score=" + endabgabe.score;
         sendRequest(query, handleInsertResponse);
-        console.log(query);
+        //console.log(query);
     }
     endabgabe.insert = insert;
     function refresh() {
@@ -31,21 +31,21 @@ var endabgabe;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let allPlayers = JSON.parse(xhr.response);
             //let SortierteScores: string[] = [];
-            /* for (let i: number = 0; i < allPlayers.length; i++) {
-                let nameS: string = allPlayers[i].name;
-                let scoreS: number = allPlayers[i].score;
-
-                allPlayers.sort(compareNumbers);
-            } */
-            let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseJASON = JSON.parse(xhr.response);
-            console.log(responseJASON);
-            console.log(allPlayers);
+            /*  for (let i: number = 0; i < allPlayers.length; i++) {
+                 let nameS: string = allPlayers[i].name;
+                 let scoreS: number = allPlayers[i].score;
+ 
+                 allPlayers.sort(compareNumbers);
+             } */
+            console.log("PLayerliste:" + allPlayers);
             for (let i = 0; i < 5; i++) {
                 //let divElement: HTMLDivElement = document.createElement("div");
                 //divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
                 //document.getElementById("highscores").appendChild(divElement);
+                let output = document.getElementsByTagName("textarea")[i];
+                output.value = xhr.response;
+                let responseJASON = JSON.parse(xhr.response);
+                console.log("Response: " + responseJASON);
             }
         }
     }

@@ -6,7 +6,7 @@ namespace endabgabe {
         let query: string = "command=insert";
         query += "&name=" + playerName + "&score=" + score;
         sendRequest(query, handleInsertResponse);
-        console.log(query);
+        //console.log(query);
     }
 
     export function refresh(): void {
@@ -35,23 +35,22 @@ namespace endabgabe {
             let allPlayers: Player[] = JSON.parse(xhr.response);
             //let SortierteScores: string[] = [];
 
-            /* for (let i: number = 0; i < allPlayers.length; i++) {
+           /*  for (let i: number = 0; i < allPlayers.length; i++) {
                 let nameS: string = allPlayers[i].name;
                 let scoreS: number = allPlayers[i].score;
 
                 allPlayers.sort(compareNumbers);
             } */
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseJASON: JSON = JSON.parse(xhr.response);
-            console.log(responseJASON);
-
-            console.log(allPlayers);
+           
+            console.log("PLayerliste:" + allPlayers);
             for (let i: number = 0; i < 5; i++) {
                 //let divElement: HTMLDivElement = document.createElement("div");
                 //divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
                 //document.getElementById("highscores").appendChild(divElement);
-
+                let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[i];
+                output.value = xhr.response;
+                let responseJASON: JSON = JSON .parse(xhr.response);
+                console.log("Response: " + responseJASON);
             }
         }
     }

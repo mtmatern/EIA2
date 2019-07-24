@@ -325,6 +325,7 @@ namespace endabgabe {
         window.clearTimeout(timeout);
         playerName = prompt("Score: " + score, "Type your name here");
         insert();
+        refresh();
         //location.reload();
     }
 

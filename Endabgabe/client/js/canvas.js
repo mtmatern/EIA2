@@ -255,6 +255,7 @@ var endabgabe;
         window.clearTimeout(timeout);
         endabgabe.playerName = prompt("Score: " + endabgabe.score, "Type your name here");
         endabgabe.insert();
+        endabgabe.refresh();
         //location.reload();
     }
     endabgabe.gameOver = gameOver;
