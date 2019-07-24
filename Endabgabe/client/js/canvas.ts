@@ -312,7 +312,7 @@ namespace endabgabe {
     }
 
     export function highScore(): void {
-        document.getElementById("highscore").innerHTML = "";
+        document.getElementById("yourscore").innerHTML = "";
         let scoreDiv: HTMLDivElement = document.createElement("div");
         scoreDiv.innerHTML = `<div> Your Score: ${score}</div>`;
         document.getElementById("yourscore").appendChild(scoreDiv);

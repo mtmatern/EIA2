@@ -245,7 +245,7 @@ var endabgabe;
         endabgabe.crc.stroke(alga);
     }
     function highScore() {
-        document.getElementById("highscore").innerHTML = "";
+        document.getElementById("yourscore").innerHTML = "";
         let scoreDiv = document.createElement("div");
         scoreDiv.innerHTML = `<div> Your Score: ${endabgabe.score}</div>`;
         document.getElementById("yourscore").appendChild(scoreDiv);
