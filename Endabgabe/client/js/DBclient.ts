@@ -4,7 +4,7 @@ namespace endabgabe {
 
     export function insert(): void {
         let query: string = "command=insert";
-        query += "&name=" + playerName + "&punkte=" + score;
+        query += "&name=" + playerName + "&score=" + score;
         sendRequest(query, handleInsertResponse);
         console.log(query);
     }

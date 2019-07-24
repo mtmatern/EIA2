@@ -4,7 +4,7 @@ var endabgabe;
     let serverAddress = "https://bollerwagenserver.herokuapp.com/";
     function insert() {
         let query = "command=insert";
-        query += "&name=" + endabgabe.playerName + "&punkte=" + score;
+        query += "&name=" + endabgabe.playerName + "&score=" + score;
         sendRequest(query, handleInsertResponse);
         console.log(query);
     }
