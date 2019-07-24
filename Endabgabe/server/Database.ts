@@ -28,7 +28,7 @@ function handleConnect(_e: Mongo.MongoError, _client: Mongo.MongoClient): void {
     }
 } 
 
-export function insert(_doc: StudentData): void {
+export function insert(_doc: Player): void {
     // try insertion then activate callback "handleInsert"
     player.insertOne(_doc, handleInsert); //collection students. übergebe das dokument: ein objekt von studenten daten und füge das ein. Wenn du fertig bist ruf bitte handleinsert auf
 }
