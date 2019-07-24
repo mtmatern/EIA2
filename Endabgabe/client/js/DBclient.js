@@ -30,28 +30,24 @@ var endabgabe;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let allPlayers = JSON.parse(xhr.response);
-            //let SortierteScores: string[] = [];
-            /*  for (let i: number = 0; i < allPlayers.length; i++) {
-                 let nameS: string = allPlayers[i].name;
-                 let scoreS: number = allPlayers[i].score;
- 
-                 allPlayers.sort(compareNumbers);
-             } */
+            for (let i = 0; i < allPlayers.length; i++) {
+                allPlayers.sort(compareNumbers);
+            }
             console.log("PLayerliste:" + allPlayers);
             for (let i = 0; i < 5; i++) {
-                //let divElement: HTMLDivElement = document.createElement("div");
-                //divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
-                //document.getElementById("highscores").appendChild(divElement);
-                let output = document.getElementsByTagName("textarea")[i];
+                let divElement = document.createElement("div");
+                divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
+                document.getElementById("highscores").appendChild(divElement);
+                /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[i];
                 output.value = xhr.response;
-                let responseJASON = JSON.parse(xhr.response);
-                console.log("Response: " + responseJASON);
+                let responseJASON: JSON = JSON .parse(xhr.response);
+                console.log("Response: " + responseJASON); */
             }
         }
     }
-    /* function compareNumbers(a: Player, b: Player): number {
-        let scoreA: number = a.score;
-        let scoreB: number = b.score;
+    function compareNumbers(a, b) {
+        let scoreA = a.score;
+        let scoreB = b.score;
         if (scoreA < scoreB) {
             return 1;
         }
@@ -59,6 +55,6 @@ var endabgabe;
             return -1;
         }
         return 0;
-    } */
+    }
 })(endabgabe || (endabgabe = {}));
 //# sourceMappingURL=DBclient.js.map
