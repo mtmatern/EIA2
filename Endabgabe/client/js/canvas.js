@@ -254,8 +254,8 @@ var endabgabe;
     function gameOver() {
         window.clearTimeout(timeout);
         endabgabe.playerName = prompt("Score: " + endabgabe.score, "Type your name here");
-        //insert();
-        location.reload();
+        endabgabe.insert();
+        //location.reload();
     }
     endabgabe.gameOver = gameOver;
 })(endabgabe || (endabgabe = {}));

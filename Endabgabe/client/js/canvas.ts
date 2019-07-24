@@ -324,8 +324,8 @@ namespace endabgabe {
     export function gameOver(): void {
         window.clearTimeout(timeout);
         playerName = prompt("Score: " + score, "Type your name here");
-        //insert();
-        location.reload();
+        insert();
+        //location.reload();
     }
 
     
