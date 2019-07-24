@@ -37,11 +37,14 @@ var endabgabe;
                 allPlayers.sort(compareNumbers);
             }
             console.log(allPlayers);
-            for (let i = 0; i < 6; i++) {
-                // document.getElementById("scoresBeste").innerHTML = "";
-                let prodElement = document.createElement("div");
-                prodElement.innerHTML = `<div> Spieler ${allPlayers[i].name} : ${allPlayers[i].score} Score</div>`;
-                document.getElementById("highscores").appendChild(prodElement);
+            for (let i = 0; i < 5; i++) {
+                //let divElement: HTMLDivElement = document.createElement("div");
+                //divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} Score: ${allPlayers[i].score} </div>`;
+                //document.getElementById("highscores").appendChild(divElement);
+                let output = document.getElementsByTagName("textarea")[0];
+                output.value = xhr.response;
+                let responseJASON = JSON.parse(xhr.response);
+                console.log(responseJASON);
             }
         }
     }
