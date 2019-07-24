@@ -59,7 +59,7 @@ namespace endabgabe {
         if (_scoreOne.score < _scoreTwo.score) {
             return 1;
         }
-        if (_scoreOne > _scoreTwo) {
+        if (_scoreOne.score > _scoreTwo.score) {
             return -1;
         }
         return 0;
