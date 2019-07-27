@@ -7,8 +7,9 @@ var endabgabe;
             this.y = Math.random() * endabgabe.canvas.height;
             this.dx = Math.random() * 1 - 2;
             this.dy = Math.random() * 2 - 1;
-            this.radiusX = Math.random() * 30 + 5;
-            this.radiusY = Math.random() * 29 + 10;
+            this.radiusX = Math.random() * 20 + 5;
+            this.radiusY = Math.random() * 20 + 10;
+            //this.radiusY = 50
             this.hitboxRadius = this.radiusX;
             this.hitboxRadiusY = this.radiusY;
             this.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
@@ -47,8 +48,8 @@ var endabgabe;
             endabgabe.crc.stroke(fishTail);
             let hitBox = new Path2D();
             hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.hitboxRadiusY, -1.5, 0, 2 * Math.PI);
-            //crc.strokeStyle = "#8494FF61";
             endabgabe.crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
+            endabgabe.crc.strokeStyle = "black";
             endabgabe.crc.stroke(hitBox);
             super.draw();
         }

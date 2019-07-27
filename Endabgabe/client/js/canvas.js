@@ -17,7 +17,7 @@ var endabgabe;
         drawBackground();
         imageData = endabgabe.crc.getImageData(0, 0, endabgabe.canvas.width, endabgabe.canvas.height);
         endabgabe.gamingFish = new endabgabe.GamingFish();
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 6; i++) {
             endabgabe.fish1 = new endabgabe.Fish1();
             seaworldthingsArray.push(endabgabe.fish1);
             endabgabe.fish1.draw();
@@ -125,24 +125,71 @@ var endabgabe;
         endabgabe.crc.font = "30px Typewriter";
         endabgabe.crc.textAlign = "start";
         endabgabe.crc.fillText("Score: " + endabgabe.score.toString(), 20, 40);
-        if (seaworldthingsArray.length <= 57) {
+        if (round >= 0) {
             endabgabe.crc.fillStyle = "black";
             endabgabe.crc.font = "30px Typewriter";
             endabgabe.crc.textAlign = "center";
             endabgabe.crc.fillText("ROUND: " + round, endabgabe.canvas.width / 2, 40);
             console.log("ROUND: " + round);
         }
-        if (seaworldthingsArray.length == 25) {
+        if (round == 1 && seaworldthingsArray.length == 25) {
             //location.reload();
             //console.log("Array leer");
             //gameOver();
             round += 1;
-            for (let i = 0; i < 5; i++) {
+            endabgabe.gamingFish.x = endabgabe.canvas.width / 2;
+            endabgabe.gamingFish.y = endabgabe.canvas.height / 2;
+            endabgabe.gamingFish.radiusHeadX = 13;
+            endabgabe.gamingFish.radiusHeadY = 20;
+            endabgabe.gamingFish.radiusEye = 3;
+            endabgabe.gamingFish.radiusIris = 1;
+            endabgabe.gamingFish.startTailX = 20;
+            endabgabe.gamingFish.startTailY = 2;
+            endabgabe.gamingFish.sizeTail1 = endabgabe.gamingFish.radiusHeadX + 30;
+            endabgabe.gamingFish.sizeTail2 = endabgabe.gamingFish.radiusHeadX + 36;
+            endabgabe.gamingFish.sizeTail3 = 22;
+            endabgabe.gamingFish.sizeTail4 = 10;
+            endabgabe.gamingFish.hitboxRadiusX = 13;
+            endabgabe.gamingFish.hitboxRadiusY = 20;
+            for (let i = 0; i < 12; i++) {
                 endabgabe.fish1 = new endabgabe.Fish1();
                 seaworldthingsArray.push(endabgabe.fish1);
                 endabgabe.fish1.draw();
             }
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 25; i++) {
+                endabgabe.fish2 = new endabgabe.Fish2();
+                seaworldthingsArray.push(endabgabe.fish2);
+                endabgabe.fish2.draw();
+            }
+            /* for (let i: number = 0; i < 5; i++) {
+    
+                fish3 = new Fish3();
+                seaworldthingsArray.push(fish3);
+                fish3.draw();
+            } */
+        }
+        if (round == 2 && seaworldthingsArray.length == 25) {
+            round += 1;
+            endabgabe.gamingFish.x = endabgabe.canvas.width / 2;
+            endabgabe.gamingFish.y = endabgabe.canvas.height / 2;
+            endabgabe.gamingFish.radiusHeadX = 13;
+            endabgabe.gamingFish.radiusHeadY = 20;
+            endabgabe.gamingFish.radiusEye = 3;
+            endabgabe.gamingFish.radiusIris = 1;
+            endabgabe.gamingFish.startTailX = 20;
+            endabgabe.gamingFish.startTailY = 2;
+            endabgabe.gamingFish.sizeTail1 = endabgabe.gamingFish.radiusHeadX + 30;
+            endabgabe.gamingFish.sizeTail2 = endabgabe.gamingFish.radiusHeadX + 36;
+            endabgabe.gamingFish.sizeTail3 = 22;
+            endabgabe.gamingFish.sizeTail4 = 10;
+            endabgabe.gamingFish.hitboxRadiusX = 13;
+            endabgabe.gamingFish.hitboxRadiusY = 20;
+            for (let i = 0; i < 12; i++) {
+                endabgabe.fish1 = new endabgabe.Fish1();
+                seaworldthingsArray.push(endabgabe.fish1);
+                endabgabe.fish1.draw();
+            }
+            for (let i = 0; i < 25; i++) {
                 endabgabe.fish2 = new endabgabe.Fish2();
                 seaworldthingsArray.push(endabgabe.fish2);
                 endabgabe.fish2.draw();
@@ -153,7 +200,7 @@ var endabgabe;
                 endabgabe.fish3.draw();
             }
         }
-        if (round == 3) {
+        if (round == 3 && seaworldthingsArray.length == 25) {
             gameOver2();
         }
     }
@@ -181,9 +228,10 @@ var endabgabe;
                     endabgabe.gamingFish.sizeTail3 += 2;
                     endabgabe.gamingFish.sizeTail4 += 2;
                     endabgabe.score += 5;
-                    //console.log("HibtoxX: " + gamingFish.hitboxRadiusX + " HitboxY: " + gamingFish.hitboxRadiusY)
+                    console.log("HibtoxX: " + endabgabe.gamingFish.hitboxRadiusX + " HitboxY: " + endabgabe.gamingFish.hitboxRadiusY);
                 }
                 if (endabgabe.gamingFish.hitboxRadiusX < sAi.hitboxRadius /* && gamingFish.hitboxRadiusY < sAi.hitboxRadiusY */) {
+                    console.log(sAi);
                     gameOver();
                     ;
                 }
@@ -278,18 +326,16 @@ var endabgabe;
         endabgabe.crc.fill(alga);
         endabgabe.crc.stroke(alga);
     }
-    function highScore() {
-        document.getElementById("yourscore").innerHTML = "";
-        let scoreDiv = document.createElement("div");
-        scoreDiv.innerHTML = `<div> Your Score: ${endabgabe.score}</div>`;
-        document.getElementById("yourscore").appendChild(scoreDiv);
-    }
-    endabgabe.highScore = highScore;
+    //document.getElementById("highscores").innerHTML = "";
+    //let scoreDiv: HTMLDivElement = document.createElement("div");
     function gameOver() {
         window.clearTimeout(timeout);
         endabgabe.playerName = prompt("Score: " + endabgabe.score, "Type your name here");
+        document.getElementById("highscores").innerHTML = "";
         endabgabe.insert();
-        //refresh();
+        endabgabe.refresh();
+        //scoreDiv.innerHTML = `<div> Your Score: ${score}</div>`;
+        //document.getElementById("highscores").appendChild(scoreDiv);
         //location.reload();
     }
     endabgabe.gameOver = gameOver;

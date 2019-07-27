@@ -14,8 +14,8 @@ namespace endabgabe {
             this.y = Math.random() * canvas.height;
             this.dx = Math.random() * 1 - 2;
             this.dy = Math.random() * 2 - 1;
-            this.radiusX = Math.random() * 148 + 40;
-            this.radiusY = Math.random() * 148 + 60;
+            this.radiusX = Math.random() * 70 + 40;
+            this.radiusY = Math.random() * 70 + 60;
 
             this.hitboxRadius = this.radiusX;
             this.hitboxRadiusY = this.radiusY;

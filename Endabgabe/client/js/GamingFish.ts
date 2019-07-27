@@ -38,12 +38,12 @@ namespace endabgabe {
             
 
 
-            this.radiusHeadX = 10;
+            this.radiusHeadX = 13;
             this.radiusHeadY = 20;
             
-            this.radiusEye = 3;
+            this.radiusEye = 5;
             
-            this.radiusIris = 1;
+            this.radiusIris = 2;
 
             this.startTailX = 20;
             this.startTailY = 2;
@@ -53,8 +53,8 @@ namespace endabgabe {
             this.sizeTail4 = 10;
 
             
-            this.hitboxRadiusX = 10;
-            this.hitboxRadiusY = 20;
+            this.hitboxRadiusX = this.radiusHeadX;
+            this.hitboxRadiusY = this.radiusHeadY;
 
             /* if(this.hitboxRadiusX == 10 && this.hitboxRadiusY == 20){
                 this.hitboxSize = 1;
@@ -138,8 +138,8 @@ namespace endabgabe {
 
                 let hitBox: Path2D = new Path2D();
                 hitBox.ellipse(this.x, this.y, this.hitboxRadiusX, this.hitboxRadiusY, 1.5, 0, 2 * Math.PI);
-                //crc.strokeStyle = "#8494FF61";
-                crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
+                //crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
+                crc.strokeStyle = "black";
                 crc.stroke(hitBox);
             }
             

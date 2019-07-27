@@ -3,14 +3,15 @@ var endabgabe;
     class Fish1 extends endabgabe.SeaworldThings {
         constructor() {
             super();
-            this.x = (Math.floor(Math.random() * endabgabe.canvas.width) + endabgabe.canvas.width / 2); //Math.floor(Math.random() * 6) + 1  
+            this.x = (Math.floor(Math.random() * endabgabe.canvas.width) + endabgabe.canvas.width / 2 + 100); //Math.floor(Math.random() * 6) + 1  
             this.y = Math.random() * endabgabe.canvas.height - 100;
             this.dx = Math.random() * 2 + 1;
             this.dy = Math.random() * 2 - 1;
             //this.a = Math.random() * 2 + 1;
             //this.scale = Math.random() * 2 + 1;
-            this.radiusX = Math.random() * 70 + 20;
-            this.radiusY = Math.random() * 70 + 40;
+            this.radiusX = Math.random() * 50 + 30;
+            this.radiusY = Math.random() * 50 + 40;
+            //this.radiusY = 50;
             this.hitboxRadius = this.radiusX;
             this.hitboxRadiusY = this.radiusY;
             this.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
@@ -48,8 +49,8 @@ var endabgabe;
             let hitBox = new Path2D();
             //hitBox.arc(this.x, this.y, this.hitboxRadius, 0, 2 * Math.PI);
             hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.hitboxRadiusY, 1.5, 0, 2 * Math.PI);
-            //crc.strokeStyle = "#8494FF61";
             endabgabe.crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
+            endabgabe.crc.strokeStyle = "black";
             endabgabe.crc.stroke(hitBox);
             super.draw();
         }

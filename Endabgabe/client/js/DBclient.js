@@ -34,9 +34,9 @@ var endabgabe;
             }
             //console.log("PLayerliste:" + allPlayers);
             for (let i = 0; i < 15; i++) {
-                let divElement = document.createElement("div");
-                divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} : ${allPlayers[i].score} </div>`;
-                document.getElementById("highscores").appendChild(divElement);
+                let liElement = document.createElement("li");
+                liElement.innerHTML = `${allPlayers[i].name}: ${allPlayers[i].score}`;
+                document.getElementById("highscores").appendChild(liElement);
                 /* let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[i];
                 output.value = xhr.response;
                 let responseJASON: JSON = JSON .parse(xhr.response);

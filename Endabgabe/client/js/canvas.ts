@@ -33,7 +33,7 @@ namespace endabgabe {
         gamingFish = new GamingFish();
         
 
-        for (let i: number = 0; i < 12; i++) {
+        for (let i: number = 0; i < 6; i++) {
 
             fish1 = new Fish1();
             seaworldthingsArray.push(fish1);
@@ -160,27 +160,93 @@ namespace endabgabe {
         crc.font = "30px Typewriter";
         crc.textAlign = "start";
         crc.fillText("Score: " + score.toString(), 20, 40); 
-        if(seaworldthingsArray.length <= 57){
+        if(round >= 0){
             crc.fillStyle = "black";
             crc.font = "30px Typewriter";
             crc.textAlign = "center";
             crc.fillText("ROUND: " + round, canvas.width/2, 40);
             console.log("ROUND: " + round);
         }
-        if(seaworldthingsArray.length == 25){
+        if(round == 1 && seaworldthingsArray.length == 25){
             //location.reload();
             //console.log("Array leer");
             //gameOver();
             round += 1;
+
+            gamingFish.x = canvas.width/2;
+            gamingFish.y = canvas.height/2;
+
+            gamingFish.radiusHeadX = 13;
+            gamingFish.radiusHeadY = 20;
+            
+            gamingFish.radiusEye = 3;
+            
+            gamingFish.radiusIris = 1;
+
+            gamingFish.startTailX = 20;
+            gamingFish.startTailY = 2;
+            gamingFish.sizeTail1 = gamingFish.radiusHeadX + 30;
+            gamingFish.sizeTail2 = gamingFish.radiusHeadX + 36;
+            gamingFish.sizeTail3 = 22;
+            gamingFish.sizeTail4 = 10;
+
+            
+            gamingFish.hitboxRadiusX = 13;
+            gamingFish.hitboxRadiusY = 20;
             
 
-            for (let i: number = 0; i < 5; i++) {
+
+            for (let i: number = 0; i < 12; i++) {
     
                 fish1 = new Fish1();
                 seaworldthingsArray.push(fish1);
                 fish1.draw();
             }
-            for (let i: number = 0; i < 5; i++) {
+            for (let i: number = 0; i < 25; i++) {
+    
+                fish2 = new Fish2();
+                seaworldthingsArray.push(fish2);
+                fish2.draw();
+            }
+            /* for (let i: number = 0; i < 5; i++) {
+    
+                fish3 = new Fish3();
+                seaworldthingsArray.push(fish3);
+                fish3.draw();
+            } */
+        }
+        if (round == 2 && seaworldthingsArray.length == 25) {
+
+            round += 1;
+
+            gamingFish.x = canvas.width/2;
+            gamingFish.y = canvas.height/2;
+
+            gamingFish.radiusHeadX = 13;
+            gamingFish.radiusHeadY = 20;
+            
+            gamingFish.radiusEye = 3;
+            
+            gamingFish.radiusIris = 1;
+
+            gamingFish.startTailX = 20;
+            gamingFish.startTailY = 2;
+            gamingFish.sizeTail1 = gamingFish.radiusHeadX + 30;
+            gamingFish.sizeTail2 = gamingFish.radiusHeadX + 36;
+            gamingFish.sizeTail3 = 22;
+            gamingFish.sizeTail4 = 10;
+
+            
+            gamingFish.hitboxRadiusX = 13;
+            gamingFish.hitboxRadiusY = 20;
+
+            for (let i: number = 0; i < 12; i++) {
+    
+                fish1 = new Fish1();
+                seaworldthingsArray.push(fish1);
+                fish1.draw();
+            }
+            for (let i: number = 0; i < 25; i++) {
     
                 fish2 = new Fish2();
                 seaworldthingsArray.push(fish2);
@@ -193,7 +259,7 @@ namespace endabgabe {
                 fish3.draw();
             }
         }
-        if (round == 3) {
+        if (round == 3 && seaworldthingsArray.length == 25) {
             gameOver2();
         }
     } 
@@ -231,9 +297,10 @@ namespace endabgabe {
                 gamingFish.sizeTail4 += 2;
                 
                 score += 5;
-                //console.log("HibtoxX: " + gamingFish.hitboxRadiusX + " HitboxY: " + gamingFish.hitboxRadiusY)
+                console.log("HibtoxX: " + gamingFish.hitboxRadiusX + " HitboxY: " + gamingFish.hitboxRadiusY)
                 }
                 if(gamingFish.hitboxRadiusX < sAi.hitboxRadius /* && gamingFish.hitboxRadiusY < sAi.hitboxRadiusY */) {
+                console.log(sAi);
                 gameOver();;
                 }
             }
@@ -349,21 +416,19 @@ namespace endabgabe {
         crc.stroke(alga);
     }
 
-    export function highScore(): void {
-        document.getElementById("yourscore").innerHTML = "";
-        let scoreDiv: HTMLDivElement = document.createElement("div");
-        scoreDiv.innerHTML = `<div> Your Score: ${score}</div>`;
-        document.getElementById("yourscore").appendChild(scoreDiv);
-    }
+    //document.getElementById("highscores").innerHTML = "";
+    //let scoreDiv: HTMLDivElement = document.createElement("div");
     
-    
-    
-
     export function gameOver(): void {
         window.clearTimeout(timeout);
         playerName = prompt("Score: " + score, "Type your name here");
+        document.getElementById("highscores").innerHTML = "";
+        
         insert();
-        //refresh();
+        
+        refresh();
+        //scoreDiv.innerHTML = `<div> Your Score: ${score}</div>`;
+        //document.getElementById("highscores").appendChild(scoreDiv);
         //location.reload();
     }
 

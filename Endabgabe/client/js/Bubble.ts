@@ -2,7 +2,7 @@ namespace endabgabe {
     export class Bubble extends SeaworldThings {
 
         radius: number;
-        radius2: number;
+        radius2: number; 
 
         constructor(){
             super();

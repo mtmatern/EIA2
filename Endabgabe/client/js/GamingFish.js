@@ -8,18 +8,18 @@ var endabgabe;
             this.dx = 0;
             this.dy = 0;
             this.colorHead = "Red";
-            this.radiusHeadX = 10;
+            this.radiusHeadX = 13;
             this.radiusHeadY = 20;
-            this.radiusEye = 3;
-            this.radiusIris = 1;
+            this.radiusEye = 5;
+            this.radiusIris = 2;
             this.startTailX = 20;
             this.startTailY = 2;
             this.sizeTail1 = this.radiusHeadX + 30;
             this.sizeTail2 = this.radiusHeadX + 36;
             this.sizeTail3 = 22;
             this.sizeTail4 = 10;
-            this.hitboxRadiusX = 10;
-            this.hitboxRadiusY = 20;
+            this.hitboxRadiusX = this.radiusHeadX;
+            this.hitboxRadiusY = this.radiusHeadY;
             /* if(this.hitboxRadiusX == 10 && this.hitboxRadiusY == 20){
                 this.hitboxSize = 1;
             }
@@ -93,8 +93,8 @@ var endabgabe;
                 endabgabe.crc.stroke(fishTail);
                 let hitBox = new Path2D();
                 hitBox.ellipse(this.x, this.y, this.hitboxRadiusX, this.hitboxRadiusY, 1.5, 0, 2 * Math.PI);
-                //crc.strokeStyle = "#8494FF61";
-                endabgabe.crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
+                //crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
+                endabgabe.crc.strokeStyle = "black";
                 endabgabe.crc.stroke(hitBox);
             }
         }
