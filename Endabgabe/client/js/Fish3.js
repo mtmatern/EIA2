@@ -1,14 +1,14 @@
 var endabgabe;
 (function (endabgabe) {
-    class Fish2 extends endabgabe.SeaworldThings {
+    class Fish3 extends endabgabe.SeaworldThings {
         constructor() {
             super();
-            this.x = (Math.floor(Math.random() * endabgabe.canvas.width) - endabgabe.canvas.width / 2 - 100);
+            this.x = (Math.floor(Math.random() * endabgabe.canvas.width) - endabgabe.canvas.width / 2 - 1000);
             this.y = Math.random() * endabgabe.canvas.height;
             this.dx = Math.random() * 1 - 2;
             this.dy = Math.random() * 2 - 1;
-            this.radiusX = Math.random() * 30 + 5;
-            this.radiusY = Math.random() * 29 + 10;
+            this.radiusX = Math.random() * 148 + 40;
+            this.radiusY = Math.random() * 148 + 60;
             this.hitboxRadius = this.radiusX;
             this.hitboxRadiusY = this.radiusY;
             this.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
@@ -18,17 +18,17 @@ var endabgabe;
             fishHead.ellipse(this.x, this.y, this.radiusX, this.radiusY, -1.5, 0, 2 * Math.PI);
             //fishHead.ellipse()
             endabgabe.crc.strokeStyle = "Black";
-            endabgabe.crc.fillStyle = "IndianRed";
+            endabgabe.crc.fillStyle = "Green";
             //crc.fillStyle = this.color;
             endabgabe.crc.fill(fishHead);
             endabgabe.crc.stroke(fishHead);
             let fishEye = new Path2D();
-            fishEye.arc(this.x - 3, this.y - 2, 5, 0, 2 * Math.PI);
+            fishEye.arc(this.x - 50, this.y - 2, 10, 0, 2 * Math.PI);
             endabgabe.crc.fillStyle = "white";
             endabgabe.crc.fill(fishEye);
             endabgabe.crc.stroke(fishEye);
             let fishEyeIris = new Path2D();
-            fishEyeIris.arc(this.x - 3, this.y - 2, 2, 0, 2 * Math.PI);
+            fishEyeIris.arc(this.x - 50, this.y - 2, 5, 0, 2 * Math.PI);
             endabgabe.crc.fillStyle = "black";
             endabgabe.crc.fill(fishEyeIris);
             endabgabe.crc.stroke(fishEyeIris);
@@ -67,22 +67,8 @@ var endabgabe;
             if (this.y + 80 < 0) {
                 this.y = 680;
             }
-            /*  this.x += this.dx;
-             this.y += this.dy;
-             if(this.x + this.radiusX < 0) {
-                 this.x = 1000 + this.radiusY;
-             }
-             if(this.x - this.radiusX > 1000) {
-                 this.x = - this.radiusX - 30;
-             }
-             if(this.y - this.radiusX > 600) {
-                 this.y = - this.radiusX;
-             }
-             if(this.y + this.radiusX < 0) {
-                 this.y = 600 + this.radiusX;
-             } */
         }
     }
-    endabgabe.Fish2 = Fish2;
+    endabgabe.Fish3 = Fish3;
 })(endabgabe || (endabgabe = {}));
-//# sourceMappingURL=Fish2.js.map
+//# sourceMappingURL=Fish3.js.map

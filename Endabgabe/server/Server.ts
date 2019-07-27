@@ -3,6 +3,8 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Database from "./Database";
 
+/*Kommentare ebenfalls aus Aufgabe 9 */
+
 console.log("Server starting");
 
 let port: number = Number(process.env.PORT); //Schauen auf welchem Port wir liegen und wenn nicht legen wir ihn fest
@@ -36,13 +38,9 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             Database.insert(player); //Aus db füg den studenten ein
             respond(_response, "storing data"); //Ruf respond auf. alert storing data wenn insert
             break;
-            //Für Suche einbauen command ist gleich
         case "refresh":
             Database.findAll(findCallback);
             break;
-        /* case "search":
-            Database.find(findCallback, parseInt(query["matrikel"]));
-            break; */
         default:
             respond(_response, "unknown command: " + command); //Folgendes ist angekommen aber das kenne ich nicht
             break;

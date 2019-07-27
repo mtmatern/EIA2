@@ -26,6 +26,8 @@ namespace endabgabe {
         hitboxRadiusX: number;
         hitboxRadiusY: number;
 
+        //hitboxSize: number;
+
 
         constructor(){
             this.x = canvas.width/2;
@@ -36,23 +38,30 @@ namespace endabgabe {
             
 
 
-            this.radiusHeadX = 20;
-            this.radiusHeadY = 40;
+            this.radiusHeadX = 10;
+            this.radiusHeadY = 20;
             
-            this.radiusEye = 5;
+            this.radiusEye = 3;
             
-            this.radiusIris = 2;
+            this.radiusIris = 1;
 
-            this.startTailX = 40;
+            this.startTailX = 20;
             this.startTailY = 2;
-            this.sizeTail1 = this.radiusHeadX + 60;
-            this.sizeTail2 = this.radiusHeadX + 66;
+            this.sizeTail1 = this.radiusHeadX + 30;
+            this.sizeTail2 = this.radiusHeadX + 36;
             this.sizeTail3 = 22;
             this.sizeTail4 = 10;
 
             
-            this.hitboxRadiusX = 20;
-            this.hitboxRadiusY = 40;
+            this.hitboxRadiusX = 10;
+            this.hitboxRadiusY = 20;
+
+            /* if(this.hitboxRadiusX == 10 && this.hitboxRadiusY == 20){
+                this.hitboxSize = 1;
+            }
+            else {
+                this.hitboxSize = 2;
+            } */
         }
 
         draw(): void {
@@ -69,13 +78,13 @@ namespace endabgabe {
             crc.stroke(fishHead);
 
             let fishEye: Path2D = new Path2D();
-            fishEye.arc(this.x - 20, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
+            fishEye.arc(this.x - 10, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
             crc.fillStyle = "white";
             crc.fill(fishEye);
             crc.stroke(fishEye);
 
             let fishEyeIris: Path2D = new Path2D();
-            fishEyeIris.arc(this.x - 20, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
+            fishEyeIris.arc(this.x - 10, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
             crc.fillStyle = "black";
             crc.fill(fishEyeIris);
             crc.stroke(fishEyeIris);
@@ -106,13 +115,13 @@ namespace endabgabe {
                 crc.stroke(fishHead);
     
                 let fishEye: Path2D = new Path2D();
-                fishEye.arc(this.x + 20, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
+                fishEye.arc(this.x + 10, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
                 crc.fillStyle = "white";
                 crc.fill(fishEye);
                 crc.stroke(fishEye);
     
                 let fishEyeIris: Path2D = new Path2D();
-                fishEyeIris.arc(this.x + 20, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
+                fishEyeIris.arc(this.x + 10, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
                 crc.fillStyle = "black";
                 crc.fill(fishEyeIris);
                 crc.stroke(fishEyeIris);

@@ -5,6 +5,7 @@ var endabgabe;
     document.addEventListener("keyup", keyReleased);
     endabgabe.score = 0;
     let seaworldthingsArray = [];
+    let seaworldFoodArray = [];
     let round = 1;
     let fps = 30;
     let imageData;
@@ -12,6 +13,7 @@ var endabgabe;
         endabgabe.canvas = document.getElementsByTagName("canvas")[0];
         endabgabe.canvas.addEventListener("click", spawnSnacks);
         endabgabe.crc = endabgabe.canvas.getContext("2d");
+        endabgabe.refresh();
         drawBackground();
         imageData = endabgabe.crc.getImageData(0, 0, endabgabe.canvas.width, endabgabe.canvas.height);
         endabgabe.gamingFish = new endabgabe.GamingFish();
@@ -25,6 +27,12 @@ var endabgabe;
             seaworldthingsArray.push(endabgabe.fish2);
             endabgabe.fish2.draw();
         }
+        /* for (let i: number = 0; i < 10; i++) {
+    
+            fish3 = new Fish3();
+            seaworldthingsArray.push(fish3);
+            fish3.draw();
+        } */
         for (let i = 0; i < 10; i++) {
             let bubble;
             bubble = new endabgabe.Bubble();
@@ -91,12 +99,9 @@ var endabgabe;
         let xMousePos = _event.clientX;
         let yMousePos = _event.clientY;
         let snackNumber = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-        //Ich wollte eigentlich mehrere Snacks spawnen lassen, aber irgendwie gehts nicht. Warum?
         for (let i = 0; i < snackNumber; i++) {
             let snacks = new endabgabe.Snack(xMousePos, yMousePos);
-            snacks.x = xMousePos - 9;
-            snacks.y = yMousePos - 12;
-            seaworldthingsArray.push(snacks);
+            seaworldFoodArray.push(snacks);
             //snacks.draw();
         }
     }
@@ -110,17 +115,21 @@ var endabgabe;
         for (let i = 0; i < seaworldthingsArray.length; i++) {
             seaworldthingsArray[i].update();
         }
+        for (let i = 0; i < seaworldFoodArray.length; i++) {
+            seaworldFoodArray[i].update();
+        }
         endabgabe.gamingFish.update();
         collisionWithOtherFish();
+        collisionWithFood();
         endabgabe.crc.fillStyle = "black";
         endabgabe.crc.font = "30px Typewriter";
         endabgabe.crc.textAlign = "start";
         endabgabe.crc.fillText("Score: " + endabgabe.score.toString(), 20, 40);
-        if (seaworldthingsArray.length == 57) {
+        if (seaworldthingsArray.length <= 57) {
             endabgabe.crc.fillStyle = "black";
-            endabgabe.crc.font = "100px Arial";
+            endabgabe.crc.font = "30px Typewriter";
             endabgabe.crc.textAlign = "center";
-            endabgabe.crc.fillText("ROUND: " + round, endabgabe.canvas.width / 2, endabgabe.canvas.height / 2);
+            endabgabe.crc.fillText("ROUND: " + round, endabgabe.canvas.width / 2, 40);
             console.log("ROUND: " + round);
         }
         if (seaworldthingsArray.length == 25) {
@@ -128,20 +137,28 @@ var endabgabe;
             //console.log("Array leer");
             //gameOver();
             round += 1;
-            for (let i = 0; i < 12; i++) {
+            for (let i = 0; i < 5; i++) {
                 endabgabe.fish1 = new endabgabe.Fish1();
                 seaworldthingsArray.push(endabgabe.fish1);
                 endabgabe.fish1.draw();
             }
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 5; i++) {
                 endabgabe.fish2 = new endabgabe.Fish2();
                 seaworldthingsArray.push(endabgabe.fish2);
                 endabgabe.fish2.draw();
             }
+            for (let i = 0; i < 5; i++) {
+                endabgabe.fish3 = new endabgabe.Fish3();
+                seaworldthingsArray.push(endabgabe.fish3);
+                endabgabe.fish3.draw();
+            }
+        }
+        if (round == 3) {
+            gameOver2();
         }
     }
-    //clearTimeout(timeoutUpdate);
     function collisionWithOtherFish() {
+        //console.log("Collision WIht Other Fish");
         for (let i = 0; i < seaworldthingsArray.length; i++) {
             let sAi = seaworldthingsArray[i];
             let distanceX = sAi.x - endabgabe.gamingFish.x;
@@ -151,24 +168,41 @@ var endabgabe;
             if (distanceHitbox < 0) {
                 if (endabgabe.gamingFish.hitboxRadiusX > sAi.hitboxRadius) {
                     seaworldthingsArray.splice(i, 1);
-                    endabgabe.gamingFish.hitboxRadiusX += 2;
-                    endabgabe.gamingFish.hitboxRadiusY += 2;
-                    endabgabe.gamingFish.radiusHeadX += 2;
-                    endabgabe.gamingFish.radiusHeadY += 2;
+                    endabgabe.gamingFish.hitboxRadiusX += 3;
+                    endabgabe.gamingFish.hitboxRadiusY += 3;
+                    endabgabe.gamingFish.radiusHeadX += 3;
+                    endabgabe.gamingFish.radiusHeadY += 3;
                     endabgabe.gamingFish.radiusEye += 0.5;
                     endabgabe.gamingFish.radiusIris += 0.2;
-                    endabgabe.gamingFish.startTailX += 2;
+                    endabgabe.gamingFish.startTailX += 3;
                     //gamingFish.startTailY += 2;
                     endabgabe.gamingFish.sizeTail1 += 3;
                     endabgabe.gamingFish.sizeTail2 += 3;
                     endabgabe.gamingFish.sizeTail3 += 2;
                     endabgabe.gamingFish.sizeTail4 += 2;
                     endabgabe.score += 5;
+                    //console.log("HibtoxX: " + gamingFish.hitboxRadiusX + " HitboxY: " + gamingFish.hitboxRadiusY)
                 }
-                if (endabgabe.gamingFish.hitboxRadiusX < sAi.hitboxRadius) {
+                if (endabgabe.gamingFish.hitboxRadiusX < sAi.hitboxRadius /* && gamingFish.hitboxRadiusY < sAi.hitboxRadiusY */) {
                     gameOver();
                     ;
                 }
+            }
+        }
+    }
+    function collisionWithFood() {
+        //console.log("Collision With Food");
+        for (let i = 0; i < seaworldFoodArray.length; i++) {
+            let sAi2 = seaworldFoodArray[i];
+            let distanceX = sAi2.x - endabgabe.gamingFish.x;
+            let distanceY = sAi2.y - endabgabe.gamingFish.y;
+            let distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+            let distanceHitbox = distance - endabgabe.gamingFish.hitboxRadiusX - sAi2.hitboxRadius;
+            if (distanceHitbox < 0) {
+                console.log("Food");
+                seaworldFoodArray.splice(i, 1);
+                endabgabe.score += 1;
+                //console.log("ja");
             }
         }
     }
@@ -255,9 +289,15 @@ var endabgabe;
         window.clearTimeout(timeout);
         endabgabe.playerName = prompt("Score: " + endabgabe.score, "Type your name here");
         endabgabe.insert();
-        endabgabe.refresh();
+        //refresh();
         //location.reload();
     }
     endabgabe.gameOver = gameOver;
+    function gameOver2() {
+        window.clearTimeout(timeout);
+        endabgabe.playerName = prompt("You beat the game! Highscore: " + endabgabe.score, "Type your name here");
+        endabgabe.insert();
+    }
+    endabgabe.gameOver2 = gameOver2;
 })(endabgabe || (endabgabe = {}));
 //# sourceMappingURL=canvas.js.map

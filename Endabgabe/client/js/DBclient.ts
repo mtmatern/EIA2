@@ -6,7 +6,6 @@ namespace endabgabe {
         let query: string = "command=insert";
         query += "&name=" + playerName + "&score=" + score;
         sendRequest(query, handleInsertResponse);
-        //console.log(query);
     }
 
     export function refresh(): void {
@@ -20,7 +19,6 @@ namespace endabgabe {
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
     }
-
 
     function handleInsertResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
@@ -40,8 +38,8 @@ namespace endabgabe {
                 allPlayers.sort(compareNumbers);
             }
            
-            console.log("PLayerliste:" + allPlayers);
-            for (let i: number = 0; i < 5; i++) {
+            //console.log("PLayerliste:" + allPlayers);
+            for (let i: number = 0; i < 15; i++) {
                 let divElement: HTMLDivElement = document.createElement("div");
                 divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} : ${allPlayers[i].score} </div>`;
                 document.getElementById("highscores").appendChild(divElement);
@@ -54,8 +52,6 @@ namespace endabgabe {
     }
 
     function compareNumbers(_scoreOne: Player, _scoreTwo: Player): number { 
-        //let scoreOne: number = _one.score;
-        //let scoreTwo: number = _two.score;
         if (_scoreOne.score < _scoreTwo.score) {
             return 1;
         }

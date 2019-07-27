@@ -1,5 +1,5 @@
 namespace endabgabe {
-    export class Fish2 extends SeaworldThings {
+    export class Fish3 extends SeaworldThings {
 
         radiusX: number;
         radiusY: number;
@@ -10,12 +10,12 @@ namespace endabgabe {
 
         constructor(){
             super();
-            this.x = (Math.floor(Math.random() * canvas.width) - canvas.width/2 - 100);
+            this.x = (Math.floor(Math.random() * canvas.width) - canvas.width/2 - 1000);
             this.y = Math.random() * canvas.height;
             this.dx = Math.random() * 1 - 2;
             this.dy = Math.random() * 2 - 1;
-            this.radiusX = Math.random() * 30 + 5;
-            this.radiusY = Math.random() * 29 + 10;
+            this.radiusX = Math.random() * 148 + 40;
+            this.radiusY = Math.random() * 148 + 60;
 
             this.hitboxRadius = this.radiusX;
             this.hitboxRadiusY = this.radiusY;
@@ -27,19 +27,19 @@ namespace endabgabe {
             fishHead.ellipse(this.x, this.y, this.radiusX, this.radiusY, -1.5, 0, 2 * Math.PI);
             //fishHead.ellipse()
             crc.strokeStyle = "Black";
-            crc.fillStyle = "IndianRed";
+            crc.fillStyle = "Green";
             //crc.fillStyle = this.color;
             crc.fill(fishHead);
             crc.stroke(fishHead);
 
             let fishEye: Path2D = new Path2D();
-            fishEye.arc(this.x - 3, this.y - 2, 5, 0, 2 * Math.PI);
+            fishEye.arc(this.x - 50, this.y - 2, 10, 0, 2 * Math.PI);
             crc.fillStyle = "white";
             crc.fill(fishEye);
             crc.stroke(fishEye);
 
             let fishEyeIris: Path2D = new Path2D();
-            fishEyeIris.arc(this.x - 3, this.y - 2, 2, 0, 2 * Math.PI);
+            fishEyeIris.arc(this.x - 50, this.y - 2, 5, 0, 2 * Math.PI);
             crc.fillStyle = "black";
             crc.fill(fishEyeIris);
             crc.stroke(fishEyeIris);
@@ -82,20 +82,6 @@ namespace endabgabe {
             if(this.y + 80 < 0) {
                 this.y = 680;
             }
-           /*  this.x += this.dx;
-            this.y += this.dy;
-            if(this.x + this.radiusX < 0) {
-                this.x = 1000 + this.radiusY; 
-            }
-            if(this.x - this.radiusX > 1000) {
-                this.x = - this.radiusX - 30; 
-            }
-            if(this.y - this.radiusX > 600) {
-                this.y = - this.radiusX;
-            }
-            if(this.y + this.radiusX < 0) {
-                this.y = 600 + this.radiusX;
-            } */
         }
     }
 }

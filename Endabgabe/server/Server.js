@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
 const Database = require("./Database");
+/*Kommentare ebenfalls aus Aufgabe 9 */
 console.log("Server starting");
 let port = Number(process.env.PORT); //Schauen auf welchem Port wir liegen und wenn nicht legen wir ihn fest
 if (!port)
@@ -27,13 +28,9 @@ function handleRequest(_request, _response) {
             Database.insert(player); //Aus db füg den studenten ein
             respond(_response, "storing data"); //Ruf respond auf. alert storing data wenn insert
             break;
-        //Für Suche einbauen command ist gleich
         case "refresh":
             Database.findAll(findCallback);
             break;
-        /* case "search":
-            Database.find(findCallback, parseInt(query["matrikel"]));
-            break; */
         default:
             respond(_response, "unknown command: " + command); //Folgendes ist angekommen aber das kenne ich nicht
             break;

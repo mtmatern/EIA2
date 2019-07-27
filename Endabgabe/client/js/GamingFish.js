@@ -1,24 +1,31 @@
 var endabgabe;
 (function (endabgabe) {
     class GamingFish {
+        //hitboxSize: number;
         constructor() {
             this.x = endabgabe.canvas.width / 2;
             this.y = endabgabe.canvas.height / 2;
             this.dx = 0;
             this.dy = 0;
             this.colorHead = "Red";
-            this.radiusHeadX = 20;
-            this.radiusHeadY = 40;
-            this.radiusEye = 5;
-            this.radiusIris = 2;
-            this.startTailX = 40;
+            this.radiusHeadX = 10;
+            this.radiusHeadY = 20;
+            this.radiusEye = 3;
+            this.radiusIris = 1;
+            this.startTailX = 20;
             this.startTailY = 2;
-            this.sizeTail1 = this.radiusHeadX + 60;
-            this.sizeTail2 = this.radiusHeadX + 66;
+            this.sizeTail1 = this.radiusHeadX + 30;
+            this.sizeTail2 = this.radiusHeadX + 36;
             this.sizeTail3 = 22;
             this.sizeTail4 = 10;
-            this.hitboxRadiusX = 20;
-            this.hitboxRadiusY = 40;
+            this.hitboxRadiusX = 10;
+            this.hitboxRadiusY = 20;
+            /* if(this.hitboxRadiusX == 10 && this.hitboxRadiusY == 20){
+                this.hitboxSize = 1;
+            }
+            else {
+                this.hitboxSize = 2;
+            } */
         }
         draw() {
             if (this.dx < 0) {
@@ -33,12 +40,12 @@ var endabgabe;
                 endabgabe.crc.fill(fishHead);
                 endabgabe.crc.stroke(fishHead);
                 let fishEye = new Path2D();
-                fishEye.arc(this.x - 20, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
+                fishEye.arc(this.x - 10, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
                 endabgabe.crc.fillStyle = "white";
                 endabgabe.crc.fill(fishEye);
                 endabgabe.crc.stroke(fishEye);
                 let fishEyeIris = new Path2D();
-                fishEyeIris.arc(this.x - 20, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
+                fishEyeIris.arc(this.x - 10, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
                 endabgabe.crc.fillStyle = "black";
                 endabgabe.crc.fill(fishEyeIris);
                 endabgabe.crc.stroke(fishEyeIris);
@@ -66,12 +73,12 @@ var endabgabe;
                 endabgabe.crc.fill(fishHead);
                 endabgabe.crc.stroke(fishHead);
                 let fishEye = new Path2D();
-                fishEye.arc(this.x + 20, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
+                fishEye.arc(this.x + 10, this.y - 2, this.radiusEye, 0, 2 * Math.PI);
                 endabgabe.crc.fillStyle = "white";
                 endabgabe.crc.fill(fishEye);
                 endabgabe.crc.stroke(fishEye);
                 let fishEyeIris = new Path2D();
-                fishEyeIris.arc(this.x + 20, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
+                fishEyeIris.arc(this.x + 10, this.y - 2, this.radiusIris, 0, 2 * Math.PI);
                 endabgabe.crc.fillStyle = "black";
                 endabgabe.crc.fill(fishEyeIris);
                 endabgabe.crc.stroke(fishEyeIris);

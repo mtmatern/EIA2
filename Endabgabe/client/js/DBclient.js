@@ -6,7 +6,6 @@ var endabgabe;
         let query = "command=insert";
         query += "&name=" + endabgabe.playerName + "&score=" + endabgabe.score;
         sendRequest(query, handleInsertResponse);
-        //console.log(query);
     }
     endabgabe.insert = insert;
     function refresh() {
@@ -33,8 +32,8 @@ var endabgabe;
             for (let i = 0; i < allPlayers.length; i++) {
                 allPlayers.sort(compareNumbers);
             }
-            console.log("PLayerliste:" + allPlayers);
-            for (let i = 0; i < 5; i++) {
+            //console.log("PLayerliste:" + allPlayers);
+            for (let i = 0; i < 15; i++) {
                 let divElement = document.createElement("div");
                 divElement.innerHTML = `<div> Spieler: ${allPlayers[i].name} : ${allPlayers[i].score} </div>`;
                 document.getElementById("highscores").appendChild(divElement);
@@ -46,8 +45,6 @@ var endabgabe;
         }
     }
     function compareNumbers(_scoreOne, _scoreTwo) {
-        //let scoreOne: number = _one.score;
-        //let scoreTwo: number = _two.score;
         if (_scoreOne.score < _scoreTwo.score) {
             return 1;
         }

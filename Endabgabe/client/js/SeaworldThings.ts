@@ -7,6 +7,7 @@ namespace endabgabe{
         dy: number;
 
         hitboxRadius: number;
+        hitboxRadiusY: number;
 
         color: string;
 

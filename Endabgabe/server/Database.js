@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mongo = require("mongodb");
 console.log("Database starting");
+/* Kommentare sind die aus Aufgabe 9, da wir da die Serververbondung gelernt haben */
 let databaseURL = "mongodb://localhost:27017/"; //neue datenbank erstellt
 let databaseName = "Test";
 let db; //typ Mongo.Db ist von Mongo bereit gestellt
@@ -50,17 +51,4 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
-/* xport function find(_callback: Function, _input: Number): void {
-    let cursor: Mongo.Cursor = player.find({matrikel: _input});
-    cursor.toArray(prepareAnswer);
-
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
-        if (_e)
-            _callback("Error" + _e);
-        else
-            // stringify creates a json-string, passed it back to _callback
-            _callback(JSON.stringify(studentArray)); //callback bekommt hier das array aus toArray in Z.49
-    }
-} */
-//Suchfunktion anpassen 
 //# sourceMappingURL=Database.js.map

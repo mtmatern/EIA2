@@ -9,9 +9,10 @@ var endabgabe;
             this.dy = Math.random() * 2 - 1;
             //this.a = Math.random() * 2 + 1;
             //this.scale = Math.random() * 2 + 1;
-            this.radiusX = Math.random() * 40 + 20;
-            this.radiusY = Math.random() * 60 + 40;
+            this.radiusX = Math.random() * 70 + 20;
+            this.radiusY = Math.random() * 70 + 40;
             this.hitboxRadius = this.radiusX;
+            this.hitboxRadiusY = this.radiusY;
             this.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
         }
         draw() {
@@ -46,7 +47,7 @@ var endabgabe;
             endabgabe.crc.stroke(fishTail);
             let hitBox = new Path2D();
             //hitBox.arc(this.x, this.y, this.hitboxRadius, 0, 2 * Math.PI);
-            hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.radiusY, 1.5, 0, 2 * Math.PI);
+            hitBox.ellipse(this.x, this.y, this.hitboxRadius, this.hitboxRadiusY, 1.5, 0, 2 * Math.PI);
             //crc.strokeStyle = "#8494FF61";
             endabgabe.crc.strokeStyle = "rgba (255, 255, 255, 0.0)";
             endabgabe.crc.stroke(hitBox);
@@ -58,18 +59,32 @@ var endabgabe;
         move() {
             this.x += this.dx;
             this.y += this.dy;
-            if (this.x + 80 < 0) {
-                this.x = 1080;
+            if (this.x + 100 < 0) {
+                this.x = 1100;
             }
-            if (this.x - 80 > 1000) {
+            if (this.x - 100 > 1000) {
                 this.x = -80;
             }
-            if (this.y - 80 > 600) {
-                this.y = -80;
+            if (this.y - 100 > 600) {
+                this.y = -100;
             }
-            if (this.y + 80 < 0) {
-                this.y = 680;
+            if (this.y + 100 < 0) {
+                this.y = 700;
             }
+            /* this.x += this.dx;
+            this.y += this.dy;
+            if(this.x + this.radiusX < 0) {
+                this.x = 1000 + this.radiusX;
+            }
+            if(this.x - this.radiusX > 1000) {
+                this.x = - this.radiusX;
+            }
+            if(this.y - this.radiusX > 600) {
+                this.y = - this.radiusX;
+            }
+            if(this.y + this.radiusX < 0) {
+                this.y = 600 + this.radiusX;
+            } */
         }
     }
     endabgabe.Fish1 = Fish1;
