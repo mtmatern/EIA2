@@ -1,0 +1,30 @@
+/*main.css*/
+
+/* #mycancas {
+    display: inline-block;
+} */
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+#scores {
+    /* text-align: center; */
+    background-color: rgb(26, 84, 207);
+    min-width: 11rem;
+    margin-left: 2rem;
+    
+    /* text-align: left; */
+}
+
+#highscoreHeadline {
+    text-align: center;
+}
+
+#highscores {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    /* float: right;
+    display: inline-block; */
+}
